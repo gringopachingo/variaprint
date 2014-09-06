@@ -1,7 +1,7 @@
 variaprint
 ==========
 
-Web-to-print PDF customization and ordering system 
+Web-to-print PDF personalization and ordering system 
 
 
 **Source code notes**
