@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <siteattributes> 
+    <tab name="Page Text" id="tab_5"> 
+	
+      <field inputtype="Note" label="Catalog Page Title and Description" style="titlebold"/>
+     <field id="CatalogTitle" label="Page Title" inputtype="Text"/>
+      <field id="CatalogText" label="Page Description Text" inputtype="Textarea"/>
+      
+	   <field id="spacer" inputtype="Note" label=" " style="text"/>
+      <field inputtype="Note" label="Cart Page Title and Description" style="titlebold"/>
+      <field id="CartTitle" label="Cart Page Title" inputtype="Text"/>
+      <field id="CartText" label="Cart Page Description " inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+
+      <field inputtype="Note" label="Checkout Title Page and Description" style="titlebold"/>
+      <field id="CheckoutTitle" label="Checkout Page Title" inputtype="Text"/>
+      <field id="CheckoutText" label="Checkout Page Description " inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+
+      <field inputtype="Note" label="Pre-invoice Page Title and Description" style="titlebold"/>
+      <field id="PreInvoiceTitle" label="Pre-invoice Page Title" inputtype="Text"/>
+      <field id="PreInvoiceText" label="Pre-invoice Page Description " inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+
+      <field inputtype="Note" label="Invoice Page Title and Description" style="titlebold"/>
+      <field id="InvoiceTitle" label="Invoice Page Title" inputtype="Text"/>
+      <field id="InvoiceText" label="Invoice Page Description " inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/> 
+
+      <field label="Proof Approval Page Title, Description &amp; Agreement" inputtype="Note" style="titlebold"/>
+      <field id="ApprovalTitle" label="Approval Page Title" inputtype="Text"/>
+      <field id="ApprovalText" label="Approval Page Description" inputtype="Textarea"/>
+
+      <field id="ApprovalAgreementText" label="Approval agreement text" inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+
+      <field inputtype="Note" label="Login Page Title and Description" style="titlebold"/>
+      <field id="LoginTitle" label="Login Page Title" inputtype="Text"/>
+      <field id="LoginText" label="Login Page Description " inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+    	
+      <field inputtype="Note" label="Account Page Title and Description" style="titlebold"/>
+      <field id="AccountTitle" label="Page Title" inputtype="Text"/>
+      <field id="AccountText" label="Page Description Text" inputtype="Textarea"/>
+
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+
+      <field inputtype="Note" label="Input Pages Title and Description" style="titlebold"/>
+      <field id="InputOptionsText" label="Input Options Page Description" inputtype="Textarea"/>
+
+      <field id="InputText" label="Input Page Description" inputtype="Textarea"/>
+	  
+	</tab>
+    <tab name="Homepage" id="tab_10"> 
+      <fieldgroup style="subhead" id="HomePageStyle" inputtype="Radio" value="Link" label="Home Button Links to This Location (URL)"> 
+        <field id="hpURL" inputtype="Text" label="Homepage URL"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+      <fieldgroup style="subhead" id="HomePageStyle" inputtype="Radio" value="Standard" label="Home Button Links to Default Homepage"> 
+ 		<field id="HomePageLogin" inputtype="Radio" inputoptions="Y;Yes:N;No" label="Show Login on Home Page?"/>
+		
+		<field id="HomeCatalogButton" label="Catalog Button Graphic" inputtype="File"/>
+
+		<field id="spacer" inputtype="Note" label=" " style="text"/>
+        <field id="HomePageTitle" inputtype="Text" label="Home Page Title"/>
+        <field id="HomePageIntroText" inputtype="Textarea" label="Home Page Intro Text"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+      <fieldgroup style="subhead" id="HomePageStyle" inputtype="Radio" value="NoPage" label="Home Button Links to Catalog Page"> 
+        <field id="dontshowhp" label="The catalog will be the first page your customers will see." inputtype="Note"/>
+      </fieldgroup>
+    </tab>
+    <tab name="Catalog" id="tab_20"> 
+      <field id="itemlink" label="To edit items in catalog &lt;a href=&quot;vp.php?action=item_list&quot;&gt;click here.&lt;/a&gt;" inputtype="Note"/>
+      <field id="CatalogItemDisplayStyle" inputtype="Radio" inputoptions="List;List:Images;Images" label="Item Display Style"/>
+    </tab>
+    <tab id="tab_15" name="User Accounts &amp; Login"> 
+	  <field  style="subhead"  inputtype="Note" label="Order site login requirements"/>
+		  <field style="text" id="CatalogRequireLogin" label="Don't require login" inputtype="Radio" value="No"/> 
+		  <field style="text" id="CatalogRequireLogin" label="Require login to check out" inputtype="Radio" value="Checkout"/> 
+		  <field style="text" id="CatalogRequireLogin" label="Require login to add items to cart or check out" inputtype="Radio" value="Add"/> 
+		  <field style="text" id="CatalogRequireLogin" label="Require login to access anything" inputtype="Radio" value="Catalog"/> 
+		
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+	  <fieldgroup  style="subhead"  id="RequireAccountApproval" inputtype="Checkbox" label="Require account approval before allowing login">
+	  	<field inputtype="Note" label="Enter an email address to send account requests to for approval before buyers can log in to their account. This person will receive an encrypted link to a webpage where they can approve or deny the request. Must be a valid address or accounts won't be able to be approved."/>
+	  	<field id="AccountApprovalEmail" label="Send account requests to email"/>
+	  	
+	  </fieldgroup>
+	
+	</tab>
+	
+    <tab id="tab_50" name="Checkout &amp; Ecommerce"> 
+
+      <field inputtype="Note" label="Initial order status" style="titlebold"/>
+        <field id="InitialOrderStatus" label="Select initial order status" inputtype="Pulldown" inputoptions="20;Waiting for approval:35;Ready for production"/>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+
+      <field inputtype="Note" label="Currency  (all currency symbols will be changed on order site)" style="titlebold"/>
+        <field id="Currency" label="Select currency symbol" inputtype="Pulldown" inputoptions="dollar;Dollars:euro;Euros:pound;Pounds:yen;Yen"/>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+
+      <field inputtype="Note" label="Invoice Options" style="titlebold"/>
+      <field id="InvoiceAddress" label="Company Name and Address to print on Invoice &lt;br&gt;(if in-house just enter company name and appropriate message)" inputtype="Textarea"/>
+      <field id="InvoiceNote" label="General message on invoice &lt;br&gt;(e.g. Thank you for your order)" inputtype="Text"/>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+      <field inputtype="Note" label="Payment Options" style="titlebold"/>
+      <fieldgroup style="subhead" id="DontRequirePayment" label="Disable all payment options (in-house purchasing)" value="Y" inputtype="Checkbox" > 
+        <field id="note" inputtype="Note" label="If this option is selected, none of the payment options selected below will be available to users when checking out"/>
+        <field id="NoPaymentNote" inputtype="Text" label="Note on invoice"/>
+        <field id="HideCost" inputtype="Radio" value="Show" label="Show Cost and Quantity"/>
+        <field id="HideCost" inputtype="Radio" value="Cost" label="Show Only Quantity"/>
+        <field id="HideCost" inputtype="Radio" value="CostQty" label="Hide Cost and Quantity"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+      <fieldgroup style="subhead" id="BillingAcceptCC" label="Accept Credit Cards" value="CC" inputtype="Checkbox" > 
+        <field id="BillingCCUsePayFlow" label="Use your VeriSign™ PayFlow Pro account to process orders -- &lt;a href=&quot;javascript:popupWin('payflow.php','PayFlow','width=500,height=450,scrollbars=0,resizable=0,centered=1');&quot;&gt;click here to set up&lt;/a&gt;..." inputtype="Checkbox"/>
+        <field id="BillingCCsAccepted" inputtype="Checkbox" inputoptions="Visa;Visa:MC;Master Card:AMEX;American Express:DISC;Discover:DC;Diners Club:JCB;JCB"/>
+        <field id="CCNote" inputtype="Text" label="Invoice note if paid by CC"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+      <fieldgroup style="subhead" id="BillingAcceptPO" label="Accept Purchase Orders" inputtype="Checkbox" value="PO"> 
+        <field id="SendPOManagerNoticeEmail" label="&lt;a href=&quot;vp.php?action=users_list_browse_manager&quot;&gt;Add / set up PO manager account(s)&lt;/a&gt;" inputtype="Note" value="Y"/>
+        <field id="AllowPurchaseOnPending" inputtype="Checkbox" label="Allow purchase on pending PO accounts" value="Y"/>
+        <field id="PONote" inputtype="Text" label="Invoice note if paid by PO"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+      <fieldgroup style="subhead" id="BillingAcceptChecks" label="Accept Checks" inputtype="Checkbox" value="PO"> 
+        <field id="CheckoutCheckNote" inputtype="Textarea" label="Checkout page note if paid by check"/>
+        <field id="InvoiceCheckNote" inputtype="Text" label="Invoice note if paid by check"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+	  
+      <fieldgroup style="subhead" id="BillingAcceptPayPal" label="Accept PayPal" inputtype="Checkbox" value="PayPal"> 
+        <field id="PayPalEmail" inputtype="Text" label="PayPal account email address"/>
+        <field id="PayPalPrefix" inputtype="Text" label="Prefix for PayPal item description"/>
+        <field id="CheckoutPayPalNote" inputtype="Textarea" label="Checkout page note if paid by PayPal"/>
+        <field id="InvoicePayPalNote" inputtype="Text" label="Invoice note if paid by PayPal"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+
+      <fieldgroup style="subhead" id="ChargeTax" label="Charge Tax" inputtype="Checkbox" value="PO"> 
+        <field id="note" label="&lt;a href=&quot;javascript:;&quot; onClick=&quot;popupWin('edit_tax_tables.php','','width=400,height=400,centered=1')&quot;&gt;Click here&lt;/a&gt; to edit tax amounts." inputtype="Note"/>
+      </fieldgroup>
+	  
+	  
+      <field id="spacer" inputtype="Note" label="  " style="text"/>
+
+     <field inputtype="Note" label="Other Options" style="titlebold"/>
+     <fieldgroup style="subhead" id="ShowAccount" label="Include Account Signup at Checkout" inputtype="Checkbox" value="PO"> 
+        <field id="note" label="Account signup will be shown whether this option is selected or not if an account is required to checkout (see User Accounts &amp; Login tab) and the user is not logged in." inputtype="Note"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+     <fieldgroup style="subhead" id="ShowCoupon" label="Include Coupon Option at Checkout" inputtype="Checkbox" value="true"> 
+        <field id="note" label="&lt;a href=&quot;javascript:;&quot; onClick=&quot;popupWin('edit_coupons.php','','width=550,height=465,centered=1')&quot;&gt;Click here to edit coupons&lt;/a&gt;" inputtype="Note"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+     <fieldgroup id="ChargeShipping" label="Include Shipping Address &amp; Method Selection" inputtype="Checkbox" style="subhead" value="Y"> 
+        <field id="note" label="To edit site shipping charges, &lt;a href=&quot;javascript:;&quot; onClick=&quot;popupWin('itempreseteditors/item_presets_editor.php?edit=shipping','style','width=550,height=465,centered=1')&quot;&gt;click here&lt;/a&gt;" inputtype="Note"/>
+        <field id="IncludeAddressList" label="Include address selection menu -- to setup/edit shipping address list, &lt;a href=&quot;javascript:;&quot; onClick=&quot;popupWin('shipping_address_list.php','shipping','width=550,height=465,centered=1')&quot;&gt;click here&lt;/a&gt;" inputtype="Checkbox"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+      <fieldgroup id="IncludeApprovalManager" label="Include &quot;Order Approval Manager&quot; Selection" inputtype="Checkbox" style="subhead" value="Y"> 
+        <field id="note" label="To edit approval managers, &lt;a href=&quot;javascript:;&quot; onClick=&quot;popupWin('approval_managers.php','','width=450,height=400,centered=1')&quot;&gt;click here&lt;/a&gt;" inputtype="Note"/>
+      </fieldgroup>
+      <field id="spacer" inputtype="Note" label=" " style="text"/>
+      <fieldgroup style="subhead" id="IncludeSpecialInstructions" label="Include Field for Special Instructions" inputtype="Checkbox" value="Y"> 
+        <field id="SpecialInstructionsNote" inputtype="Text" label="Note about special instructions"/>
+      </fieldgroup>
+    </tab>
+  </siteattributes>

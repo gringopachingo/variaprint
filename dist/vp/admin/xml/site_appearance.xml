@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<siteattributes>
+
+		
+	<tab name="General" id="tab_10">
+		<field id="SiteTitle" label="Site Title"/>
+		<field id="SitePageBgColor" label="Page Background Color" inputtype="Color"/>
+		<field id="SitePageBgImage" label="Page Background Image" inputtype="File"/>
+		<field id="SiteTitleStyle" label="Title Style" inputtype="FontStyle"/>
+		<field id="SiteSideSubTitleStyle" label="Side Subtitle Style" inputtype="FontStyle"/>
+		<field id="SiteSideTextStyle" label="Side Text Style" inputtype="FontStyle"/>
+
+		<field id="spacer" label="" inputtype="Note" style=""/>
+
+		<field id="" label="Tab Styles" inputtype="Note" style="titlebold"/> 
+		<field id="SiteTabOnStyle" label="Tab Style -- Selected" inputtype="FontStyle"/>
+		<field id="SiteTabOffStyle" label="Tab Style -- Deselected" inputtype="FontStyle"/>
+		<field id="SiteTabOverStyle" label="Tab Style -- Rollover" inputtype="FontStyle"/>
+	</tab>
+
+
+
+
+	<tab id="tab_40" name="Top Bar &amp; Menu">
+		<field id="SiteBannerColor" label="Banner Color" inputtype="Color"/>
+		<field id="SiteBannerLogo" label="Banner Logo" inputtype="File"/>
+
+		<field id="spacer" label="" inputtype="Note" style=""/>
+		<field id="SiteMenuBarColor" label="Menu Bar Color" inputtype="Color"/>
+		<field id="SiteBevelMenuBar" label="Bevel Menu Bar?" inputtype="Radio" inputoptions="Y;Yes:N;No"/>
+		<field id="SiteMenuTextStyle" inputtype="FontStyle" label="Menu Text Style"/>
+		<field id="SiteMenuHoverStyle" inputtype="FontStyle" label="Menu Text Rollover Style"/>
+
+		<field id="spacer" label="" inputtype="Note" style=""/>
+
+		<field id="" label="Menu Names &amp; Custom Menu Links" inputtype="Note" style="titlebold"/> 
+		<field id="MenuHomeName" label="&quot;Home&quot; Menu Label"/>
+		<field id="MenuCatalogName" label="&quot;Catalog&quot; Menu Label"/>
+		<field id="MenuAccountName" label="&quot;My Account&quot; Menu Label"/>
+		<field id="MenuOrderStatusName" label="&quot;Order Status&quot; Menu Label"/>
+		
+		<field id="spacer" label="" inputtype="Note" style=""/>
+
+		<field id="MenuText1" label="Custom Menu Label (1)"/>
+		<field id="MenuLink1" label="Custom Menu URL (1)"/>
+		<field id="MenuText2" label="Custom Menu Label (2)"/>
+		<field id="MenuLink2" label="Custom Menu URL (2)"/>
+	</tab>
+	
+	<tab name="Advanced" id="tab_20">
+		<field id="" label="General Styles" inputtype="Note" style="titlebold"/> 
+
+		<field id="SiteSubTitleStyle" label="Subtitle Style" inputtype="FontStyle"/>
+		<field id="SiteTextStyle" label="Basic Text Style" inputtype="FontStyle"/>
+		<field id="SiteLabelTextStyle" label="Label Text Style" inputtype="FontStyle"/>
+		<field id="SiteNoteTextStyle" label="Note Text Style" inputtype="FontStyle"/>
+		<field id="SiteButtonStyle" label="Button Style" inputtype="FontStyle"/>
+	</tab>
+	
+</siteattributes>

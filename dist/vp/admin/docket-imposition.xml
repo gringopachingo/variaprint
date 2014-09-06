@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+    <imposition>
+      <page>
+        <row>
+          <item order_id="20456" item_id="123"/>
+          <item order_id="20456" item_id="124"/>
+          <item order_id="20456" item_id="125"/>
+        </row>
+        <row>
+          <item order_id="20456" item_id="126"/>
+          <item order_id="20456" item_id="127"/>
+          <item order_id="20456" item_id="128"/>
+        </row>
+      </page>
+      <page>
+        <row>
+          <item order_id="20456" item_id="123"/>
+          <item order_id="20456" item_id="124"/>
+          <item order_id="20456" item_id="125"/>
+        </row>
+        <row>
+          <item order_id="20456" item_id="126"/>
+          <item order_id="20456" item_id="127"/>
+          <item order_id="20456" item_id="128"/>
+        </row>
+      </page>
+    </imposition>

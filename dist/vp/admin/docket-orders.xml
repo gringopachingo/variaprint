@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+    <docket>
+      <order order_id="20456" item_id="1234" impose_pos="A1, B1, C1"/>
+      <order order_id="20457" item_id="1235" impose_pos="A2, B2, C2"/>
+      <order order_id="20458" item_id="1236" impose_pos="A3, B3, C3"/>
+      <order order_id="20458" item_id="1237" impose_pos="A4, B4, C4"/>
+      <order order_id="20458" item_id="1238" impose_pos="A5, B5, C5"/>
+    </docket>
