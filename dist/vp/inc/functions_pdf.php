@@ -73,7 +73,6 @@ function createPreview ($siteid, $templateid, $prefillXML, $fileid, $filepath, $
 	}
 	$aItem = mysql_fetch_assoc($nResult);
 	$siteid = $aItem['SiteID'];
-//print("\n\n\nSiteID: $siteid\n\n\n");
 	$aPrefillTree = xml_get_tree($prefillXML);
 	$a_prefill = array();
 	if ( is_array($aPrefillTree[0]['children']) ) {   
@@ -81,7 +80,7 @@ function createPreview ($siteid, $templateid, $prefillXML, $fileid, $filepath, $
 			if ( $v['value'] != "") { $a_prefill[$v['attributes']['ID']] = $v['value']; }
  		}
 	} else {
-	//	return array("error"=>true,"errorMsg"=>"no prefill info found.\n"); exit;			
+	//	return array("error"=>true,"errorMsg"=>"no prefill info found.\n"); exit;
 	}
 
 	/* Make the PDF */
