@@ -91,9 +91,7 @@ function createPreview ($siteid, $templateid, $prefillXML, $fileid, $filepath, $
   	$pressbuf = pdf_create($aItem['Template'],$a_prefill,"press",$siteid);
 
  	// save generated image
- 	if ( ($scale = (350 / $pdf_vars['pagewidth'])*100) > 180 ) { $scale = 180; }
-//	print("\n\npdf_vars[pagewidth]: ".$pdf_vars['pagewidth']."    scale: $scale     filename: $fileid\n") ;
-	
+ 	if ( ($scale = (350 / $pdf_vars['pagewidth'])*100) > 180 ) { $scale = 180; }	
 
  	$starttime = getmicrotime();
 	$img = pdf_rasterize( $buf, $scale );
