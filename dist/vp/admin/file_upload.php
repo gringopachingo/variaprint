@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,7 +32,7 @@
 //
 // *******************************************************
 
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 
@@ -66,7 +66,7 @@ if ($a_form_vars['action'] == "upload" && $_SESSION[site] != "") {
 ?>
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>Upload a file</title>
@@ -121,14 +121,14 @@ function startUpload() {
 </head>
 
 <body background="images/bkg-groove.gif" leftmargin="10" topmargin="10" marginwidth="10" marginheight="10" onLoad="MM_preloadImages('images/progress-anim.gif')">
-<? if ($success) { ?>
+<?php if ($success) { ?>
 <table width="401" height="177" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="391" height="144" class="text"><? if ($has_dir) { ?><p>
+    <td width="391" height="144" class="text"><?php if ($has_dir) { ?><p>
 		<strong>WARNING: DIRECTORIES HAVE BEEN IGNORED. RE-UPLOAD WITHOUT DIRECTORIES.</strong>
 	</p>
-	<? } ?>
-	<p><?=$result?> </p>
+	<?php } ?>
+	<p><?php=$result?> </p>
       <p>You must click
         the &quot;Refresh&quot; button
       on the right of the file list to update.
@@ -138,7 +138,7 @@ function startUpload() {
   </tr>
 </table>
 <p class="text">&nbsp;</p>
-<p>  <? } else { ?>
+<p>  <?php } else { ?>
 </p>
 <div id="alertmsg" style="position:absolute; left:12px; top:111px; width:380px; height:18px; z-index:1; visibility: hidden;" class="text"><font color="#FF0000"><strong>Do 
   not close this window or your file upload will be terminated.</strong></font></div>
@@ -167,15 +167,15 @@ function startUpload() {
     <tr> 
       <td height="32" nowrap ><img src="images/spacer.gif" name="progress" width="243" height="17" id="progress"></td>
       <td align="right" nowrap ><input name="cancel" type="button" id="cancel" value="Cancel" onClick="top.close()" ></td>
-      <td align="right" nowrap ><input name="site" type="hidden" id="site" value="<? print($_SESSION[site]); ?>">
+      <td align="right" nowrap ><input name="site" type="hidden" id="site" value="<?php print($_SESSION[site]); ?>">
         <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
         <input name="action" type="hidden" id="action" value="upload">
-        <input name="folder" type="hidden" id="folder" value="<? print($_GET['folder']);  ?>">
+        <input name="folder" type="hidden" id="folder" value="<?php print($_GET['folder']);  ?>">
         <input name="uploadbtn" type="button" value="Upload" onClick="startUpload()">
       </td>
     </tr>
   </table>
 </form>
-<? } ?>
+<?php } ?>
 </body>
 </html>

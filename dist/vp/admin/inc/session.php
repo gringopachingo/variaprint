@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-if (!IsSet($a_form_vars[ms_sid])) {
-	if (IsSet($HTTP_COOKIE_VARS["ms_sid"])) {	
-		$a_form_vars[ms_sid] = $HTTP_COOKIE_VARS["ms_sid"];
+if (!IsSet($a_form_vars['ms_sid'])) {
+	if (IsSet($HTTP_COOKIE_VARS['ms_sid'])) {	
+		$a_form_vars[ms_sid] = $HTTP_COOKIE_VARS['ms_sid'];
 	} else {
 		srand((double)microtime()*1000000); 
 		$rand = rand(1000000000,99999999999999);
@@ -44,24 +44,24 @@ if (!IsSet($a_form_vars[ms_sid])) {
 		
 		
 		$ms_sid = $rand . $rand2 . $rand3;	
-		if (IsSet($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"])) {
-			$ms_sid .=  "_" . $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"] ;
+		if (IsSet($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+			$ms_sid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;
 		} else {
-			$ms_sid .= "_" . $HTTP_SERVER_VARS["REMOTE_ADDR"];
+			$ms_sid .= "_" . $_SERVER["REMOTE_ADDR"];
 		}
 		$a_form_vars[ms_sid] = urlencode( encrypt($ms_sid,"encryptit") ) ;
 	}
 }
 
 
-setcookie("ms_sid", $a_form_vars[ms_sid],time()+3600*24*90 );
+setcookie("ms_sid", $a_form_vars['ms_sid'],time()+3600*24*90 );
 $ms_sid = $a_form_vars[ms_sid]  ;//urlencode ()
-if ( !ereg("ms_sid=", $HTTP_SERVER_VARS["REQUEST_URI"]) ) {
-	if (ereg("\?", $HTTP_SERVER_VARS["REQUEST_URI"]) ) { 
-		header ("Location: " . $HTTP_SERVER_VARS[REQUEST_URI] . "&ms_sid=". $ms_sid);
+if ( !ereg("ms_sid=", $_SERVER["REQUEST_URI"]) ) {
+	if (ereg("\?", $_SERVER["REQUEST_URI"]) ) { 
+		header ("Location: " . $_SERVER[REQUEST_URI] . "&ms_sid=". $ms_sid);
 		exit;
 	} else {
-		header ("Location: " . $HTTP_SERVER_VARS[REQUEST_URI] . "?ms_sid=". $ms_sid);
+		header ("Location: " . $_SERVER[REQUEST_URI] . "?ms_sid=". $ms_sid);
 		exit;
 	}
 }

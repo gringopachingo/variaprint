@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,9 +37,9 @@ $subMenus = makeSubMenus();
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title><? print("Bottom"); ?></title>
+<title><?php print("Bottom"); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<? require_once("../style.css"); ?>
+<?php require_once("../style.css"); ?>
 <script language="JavaScript" type="text/JavaScript">
 <!--
 var submenu
@@ -77,18 +77,18 @@ function MM_showHideLayers() { //v6.0
     obj.visibility=v; }
 }
 
-<? print($headScript); ?>
+<?php print($headScript); ?>
 //-->
 </script>
 </head>
 
-<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <? print($bodyTagScript); ?> onmousedown="if (parent.frames.menu.menuStatus=='on') {  parent.frames.menu.menuStatus='off';  parent.frames.menu.doMenu('',''); }" onscroll="if (parent.frames.menu.menuStatus=='on') { parent.frames.menu.menuStatus='off';  parent.frames.menu.doMenu('',''); }">
-<form <? 
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <?php print($bodyTagScript); ?> onmousedown="if (parent.frames.menu.menuStatus=='on') {  parent.frames.menu.menuStatus='off';  parent.frames.menu.doMenu('',''); }" onscroll="if (parent.frames.menu.menuStatus=='on') { parent.frames.menu.menuStatus='off';  parent.frames.menu.doMenu('',''); }">
+<form <?php 
 if(!isset($formOptions)){ 
-	$formOptions = "action=\"" . $HTTP_SERVER_VARS['SCRIPT_NAME'] . "\"";
+	$formOptions = "action=\"" . $_SERVER['SCRIPT_NAME'] . "\"";
 }  
 print($formOptions); ?>>
-<?
+<?php
 print($content);
 
 print($subMenus);

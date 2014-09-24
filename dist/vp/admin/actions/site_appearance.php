@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -68,17 +68,17 @@ if ( is_array($aSiteSettingsRaw) ) {
 
 
 // ACTION PROCESSED HERE
-if ( $HTTP_GET_VARS['save_action'] == "Discard" ) {
+if ( $_GET['save_action'] == "Discard" ) {
 	$sql = "UPDATE Sites SET SettingsTmp=Settings WHERE ID='$_SESSION[site]'";
 	dbq($sql, "DISCARDING SITE PROPERTIES");
 	header("Location: " . $_SERVER['SCRIPT_NAME'] . "?appearance_tab=$_SESSION[appearance_tab]&action=site_appearance");
 
-} else if ( $HTTP_GET_VARS['save_action'] == "Publish" ) {
+} else if ( $_GET['save_action'] == "Publish" ) {
 	$sql = "UPDATE Sites SET Settings=SettingsTmp WHERE ID='$_SESSION[site]'";
 	dbq($sql, "PUBLISHING SITE PROPERTIES");
 	header("Location: " . $_SERVER['SCRIPT_NAME'] . "?appearance_tab=$_SESSION[appearance_tab]&action=site_appearance");
 
-} else if ( $HTTP_GET_VARS['save_action'] == "Save" ) {
+} else if ( $_GET['save_action'] == "Save" ) {
 	$thistab = $_SESSION['appearance_tab'];
 	foreach ($a_form_vars as $f_key=>$f_val) {
 		$aXMLTree = xml_update_value("properties/property:$f_key","CDATA", urldecode($f_val),$aXMLTree);
@@ -122,7 +122,7 @@ foreach($prefill as $k=>$v) {
 
 
 // SET UP TABS
-$tabs = makeTabs($site_attributes->GetTabsArray(), "&action=site_appearance", $HTTP_SERVER_VARS['SCRIPT_NAME'], $thistab, "appearance_tab");
+$tabs = makeTabs($site_attributes->GetTabsArray(), "&action=site_appearance", $_SERVER['SCRIPT_NAME'], $thistab, "appearance_tab");
 $formfields = $site_attributes->GetContent(); 
 
 // CHECK TO SEE IF CHANGES HAVE BEEN MADE SINCE SITE WAS PUBLISHED

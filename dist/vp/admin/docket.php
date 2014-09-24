@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -40,7 +40,7 @@
 	require_once("inc/session.php");
 
 	if ($suppress_display != true) { // only do this if the imposition is being downloaded
-		session_name("ms_sid");
+		session_name("ms-sid");
 		session_start();
 		$ms_sid = session_id();
 

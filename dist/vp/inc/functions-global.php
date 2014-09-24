@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 
-$fv = $a_form_vars = array_merge($HTTP_GET_VARS, $HTTP_POST_VARS) ;
+$fv = $a_form_vars = array_merge($_GET, $_POST) ;
 
 
 function _session_open ($save_path, $session_name) {
@@ -1404,4 +1404,4 @@ function move_uploaded_files($path) {
 if (0==1) {
 ?>
 <html></html>
-<? } ?>
+<?php } ?>

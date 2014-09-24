@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,7 +32,7 @@
 //
 // *******************************************************
 
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 
@@ -52,7 +52,7 @@ $mode = $a_form_vars['mode'];
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>Image Libraries</title>
@@ -60,8 +60,8 @@ print($header_content);
 </head>
 
 <frameset rows="50,*" cols="*" framespacing="0" frameborder="NO" border="0">
-  <frame src="image_library_menu.php?library=<? print($a_form_vars["library"]); ?>" name="topFrame" scrolling="NO" noresize>
-  <frame src="image_library_files.php?library=<? print($a_form_vars["library"]); ?>" name="mainFrame">
+  <frame src="image_library_menu.php?library=<?php print($a_form_vars["library"]); ?>" name="topFrame" scrolling="NO" noresize>
+  <frame src="image_library_files.php?library=<?php print($a_form_vars["library"]); ?>" name="mainFrame">
 </frameset>
 <noframes><body>
 

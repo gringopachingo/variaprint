@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,7 +39,7 @@
 		header("Content-Type: application/octet-stream");
 		header("Content-Disposition: attachment; filename=$time.pdf");
 		
-		session_name("ms_sid");
+		session_name("ms-sid");
 		session_start();
 		$ms_sid = session_id();
 

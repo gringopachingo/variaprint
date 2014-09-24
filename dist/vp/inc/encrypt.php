@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,8 +33,8 @@
 // *******************************************************
 
 
-$cfg_encrypt_key1_path = "../../key_1.php"; // don't include keys in publicly accessible directory
-$cfg_encrypt_key2_path = "../../key_2.php";
+$cfg_encrypt_key1_path = "/home/www-data/sites.cplitho.com/vp/key_1.php"; // don't include keys in publicly accessible directory
+$cfg_encrypt_key2_path = "/home/www-data/sites.cplitho.com/vp/key_2.php";
 
 require_once($cfg_encrypt_key1_path);
 require_once($cfg_encrypt_key2_path);

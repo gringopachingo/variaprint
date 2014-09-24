@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -36,7 +36,7 @@
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
 	
-	session_name("ms_sid");
+	session_name("ms-sid");
 	session_start();
 
 	$sql = "SELECT Email FROM AdminUsers WHERE Username='$_SESSION[username]'";

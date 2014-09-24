@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 //session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 $_SESSION['updated'] = " ";
@@ -97,9 +97,9 @@ function confirmAction (linkobj, msg) {
 
 <body leftmargin="16" topmargin="10" marginwidth="16" marginheight="10">
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="340" height="360">
-  <param name="movie" value="file_manager.swf?mode=<? print($mode); ?>&sm=<? print($a_form_vars['sm']); ?>&folder=<? print($a_form_vars['folder']); ?>&obj=<? print($a_form_vars[obj]); ?>">
+  <param name="movie" value="file_manager.swf?mode=<?php print($mode); ?>&sm=<?php print($a_form_vars['sm']); ?>&folder=<?php print($a_form_vars['folder']); ?>&obj=<?php print($a_form_vars[obj]); ?>">
   <param name="quality" value="high">
-  <embed src="file_manager.swf?mode=<? print($mode); ?>&folder=<? print($a_form_vars['folder']); ?>&sm=<? print($a_form_vars['sm']); ?>&obj=<? print($a_form_vars[obj]); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="340" height="360"></embed>
+  <embed src="file_manager.swf?mode=<?php print($mode); ?>&folder=<?php print($a_form_vars['folder']); ?>&sm=<?php print($a_form_vars['sm']); ?>&obj=<?php print($a_form_vars[obj]); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="340" height="360"></embed>
 </object>
 </body>
 </html>

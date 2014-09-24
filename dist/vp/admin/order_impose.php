@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -279,7 +279,7 @@ function layout_imposition($imp_id, $a_items, $run){
 
 
 
-	session_name("ms_sid");
+	session_name("ms-sid");
 	session_start();
 	$ms_sid = session_id();
 
@@ -311,7 +311,7 @@ function doUnload() {
 //	}
 }
 </script>
-<?
+<?php
 print($header_content);
 
 $duedate = date("Y-m-d",time()+(60*60*24*14));
@@ -322,7 +322,7 @@ $duedate = date("Y-m-d",time()+(60*60*24*14));
 </head>
 
 <body bgcolor="#eeeeee" background="images/bkg-groove.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
-<?
+<?php
 
 if(!isset($a_form_vars["action"])) {
 	
@@ -354,9 +354,9 @@ if(!isset($a_form_vars["action"])) {
     <td width="250" align="right" class="text"><form name="form1" method="get" action="">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
           <tr> 
-            <td align="right" class="text"><input name="imposition_id" type="hidden" id="imposition_id" value="<? print($a_form_vars[imposition_id]); ?>"> 
-              <? print($fields); ?>Change print run to &nbsp; </td>
-            <td align="center"> <input name="run" type="text" class="text" id="run" value="<?  print($run); ?>" size="5"></td>
+            <td align="right" class="text"><input name="imposition_id" type="hidden" id="imposition_id" value="<?php print($a_form_vars[imposition_id]); ?>"> 
+              <?php print($fields); ?>Change print run to &nbsp; </td>
+            <td align="center"> <input name="run" type="text" class="text" id="run" value="<?php  print($run); ?>" size="5"></td>
             <td align="center"> <input name="Submit" type="submit" class="text" value="Go"></td>
           </tr>
         </table>
@@ -365,14 +365,14 @@ if(!isset($a_form_vars["action"])) {
 </table>
 <form name="form2" method="get" action="">
 <table cellpadding="0" cellspacing="10" border="0"><tr><td>
-  <? print($content); ?> 
+  <?php print($content); ?> 
   <input type="submit" name="Submit2" value="Create PDF Imposition">
   <input name="action" type="hidden" id="action" value="download">
-  <input name="run" type="hidden" id="run" value="<? print($run); ?>">
-  <input name="imposition_id" type="hidden" id="imposition_id" value="<? print($a_form_vars[imposition_id]); ?>">
+  <input name="run" type="hidden" id="run" value="<?php print($run); ?>">
+  <input name="imposition_id" type="hidden" id="imposition_id" value="<?php print($a_form_vars[imposition_id]); ?>">
 </form>
 </td></tr></table>
-<?
+<?php
 
 	} else {
 		exit("none found.");
@@ -470,7 +470,7 @@ slave -- hide "send notice" box
   <tr>
     <td bgcolor="#FFFFFF">
       <form name="form1" method="post" action="order_impose.php">
-        <p><span class="title">&raquo; <a href="imposition.php?imposition_id=<? print($a_form_vars[imposition_id] . "&"  . $hash ) ; ?>" class="title">Click
+        <p><span class="title">&raquo; <a href="imposition.php?imposition_id=<?php print($a_form_vars[imposition_id] . "&"  . $hash ) ; ?>" class="title">Click
         here</a> to download imposition</span>&nbsp;&nbsp;&nbsp;&nbsp;          <span class="text">
           <input name="button2" type="button" onClick="history.go(-1)"value="Edit Layout">
           </span>
@@ -480,7 +480,7 @@ slave -- hide "send notice" box
         Illustrator. This may lead to unexpected results.</strong></span></p>
         <p><span class="text"><strong>We recommend outputting PDF files from
               Acrobat 5 or later.</strong></span>
-          <? if ($vendorStatus == "multiple") { ?>
+          <?php if ($vendorStatus == "multiple") { ?>
           <span class="text">        </span><br>
           </span><span class="text"><br>
           <strong><span class="text"><font color="#990000">WARNING: This
@@ -491,7 +491,7 @@ slave -- hide "send notice" box
         <p class="text"><strong><font color="#990000">Your manager account is
               the only account that will be able to access this  docket and
               imposition on the Download Dockets / Impositions page.
-              <? } ?>
+              <?php } ?>
         </font></strong></p>
         <hr size="1" noshade>
         <span class="titlebold"><strong>Create Docket</strong></span>        <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -515,7 +515,7 @@ slave -- hide "send notice" box
           <tr>
             <td height="30" class="text">Due date (YYYY-MM-DD)</td>
             <td>&nbsp;</td>
-            <td height="30"><input name="datedue" type="text" id="datedue" value="<? print($duedate); ?>">
+            <td height="30"><input name="datedue" type="text" id="datedue" value="<?php print($duedate); ?>">
             </td>
           </tr>
           <tr>
@@ -542,30 +542,30 @@ alert('Note: THIS IS NOT RECOMMENDED. Use only if you are showing the customer a
           </tr>
           <tr valign="top">
             <td height="30" colspan="3" class="text">
-			<?
+			<?php
 			 	if ($_SESSION['privilege'] == "owner") {
 			 ?>
            
 <table width="412" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td class="text"><strong>
-      <input name="record_action" type="radio" value="1" <? if ($vendorStatus != "single") print("checked"); ?>>
+      <input name="record_action" type="radio" value="1" <?php if ($vendorStatus != "single") print("checked"); ?>>
     </strong></td>
     <td class="text"><strong>Just record  this imposition in the imposition history</strong></td>
   </tr>
   <tr class="text">
     <td colspan="2">&nbsp;</td>
     </tr>
-	<? 
+	<?php 
 	if ($vendorStatus!="multiple") {
 	?>
   <tr>
     <td width="24" class="text"><strong>
-	<? if (!$hideSupplierRadio) { ?>
-      <input type="radio" name="record_action" value="2" <? if ($vendorStatus == "single") print("checked"); ?>>
-	  <? } else { ?>
+	<?php if (!$hideSupplierRadio) { ?>
+      <input type="radio" name="record_action" value="2" <?php if ($vendorStatus == "single") print("checked"); ?>>
+	  <?php } else { ?>
 	  		&nbsp; -
-	  <? } ?>
+	  <?php } ?>
 </strong></td>
     <td width="388" class="text"><strong>Record and assign docket / imposition
         access to this vendor</strong></td>
@@ -574,7 +574,7 @@ alert('Note: THIS IS NOT RECOMMENDED. Use only if you are showing the customer a
     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
     <td class="text"><table width="387" border="0" cellspacing="0" cellpadding="0">
         <tr>
-          <td height="25" nowrap class="text"><? print($supplierMenu); ?>&nbsp;</td>
+          <td height="25" nowrap class="text"><?php print($supplierMenu); ?>&nbsp;</td>
           </tr>
         <tr>
           <td height="25" nowrap class="text"><input name="send_email_2" type="checkbox" id="send_email_2" value="1" checked>
@@ -589,12 +589,12 @@ Attach PDF imposition file to email [<a href="javascript:;" onClick="alert('If t
   <tr class="text">
     <td colspan="2">&nbsp;</td>
     </tr>
-	<?
+	<?php
 	}
 	?>
   <tr>
     <td class="text"><strong>
-      <input type="radio" name="record_action" value="3" <? if ($vendorStatus == "single2") print("checked"); ?>>
+      <input type="radio" name="record_action" value="3" <?php if ($vendorStatus == "single2") print("checked"); ?>>
 </strong></td>
     <td class="text"><strong>Record and email the imposition to this supplier</strong></td>
   </tr>
@@ -619,7 +619,7 @@ function checkedAttach(hide) {
 Attach PDF imposition file to email [<a href="javascript:;" onClick="checkedAttach(false)">?</a>]</td>
   </tr>
 </table>			 
-<?
+<?php
 			 	} 
 				
 			  ?>
@@ -628,13 +628,13 @@ Attach PDF imposition file to email [<a href="javascript:;" onClick="checkedAtta
 <span class="text">
               <input name="button" type="button" onClick="if(confirm('This will discard the imposition file you just created. There will be no record of it in the VariaPrint&#8482; system. Are you sure you want to continue?')){top.close();}"value="Discard">
               <input name="submit" type="submit" value="Create and Record Docket">
-              <? print($hidden);  ?>
-<input name="run" type="hidden" id="run" value="<? print($a_form_vars["run"]); ?>">
+              <?php print($hidden);  ?>
+<input name="run" type="hidden" id="run" value="<?php print($a_form_vars["run"]); ?>">
 <input name="action" type="hidden" id="action" value="record">
 </span>
-<input name="imposition_id" type="hidden" value="<? print($a_form_vars['imposition_id']); ?>">
+<input name="imposition_id" type="hidden" value="<?php print($a_form_vars['imposition_id']); ?>">
 </p>
-<input name="docket_owner" type="hidden" value="<? print($vendorName); ?>">
+<input name="docket_owner" type="hidden" value="<?php print($vendorName); ?>">
 </td>
           </tr>
         </table>
@@ -646,9 +646,9 @@ Attach PDF imposition file to email [<a href="javascript:;" onClick="checkedAtta
 <br>
 <br>
 <script language="JavaScript" type="text/JavaScript">
-//document.location='imposition.php?imposition_id=<? print($a_form_vars[imposition_id] . "&"  . $hash ) ; ?>' ;
+//document.location='imposition.php?imposition_id=<?php print($a_form_vars[imposition_id] . "&"  . $hash ) ; ?>' ;
 </script>
-<?
+<?php
 
 } elseif ($a_form_vars["action"] == "record") {
 	//print("recording...\n\n");
@@ -870,7 +870,7 @@ top.opener.top.location.reload();
 <table width="440" height="99" border="0" align="center" cellpadding="10" cellspacing="2" bgcolor="#999999">
   <tr>
     <td bgcolor="#FFFFFF">      <span class="text">
-		A docket has been created. <a href="docket.php?id=<? print($docket_id); ?>">Click here</a> to view it.
+		A docket has been created. <a href="docket.php?id=<?php print($docket_id); ?>">Click here</a> to view it.
 		<br>
         <br>
 	   The docket and imposition file can also be accessed later under "Download&nbsp;Dockets
@@ -883,7 +883,7 @@ top.opener.top.location.reload();
   </tr>
 </table>
 	
-	<?
+	<?php
 }// endif
 	
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,7 +37,7 @@
 	require_once("inc/functions-global.php");
 	require_once("inc/encrypt.php");
 
-	session_name("ms_sid");
+	session_name("ms-sid");
 	session_start();
 
 	//	require_once("inc/session.php");

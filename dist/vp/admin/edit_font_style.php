@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -116,10 +116,10 @@ $fStyle .= "</option>";
 
 ?><html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
-<title>Edit <? print($a_form_vars[label]); ?></title>
+<title>Edit <?php print($a_form_vars[label]); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <script language="JavaScript" type="text/JavaScript">
 function findObj(n, d) { //v4.0
@@ -169,12 +169,12 @@ function popupWin(u,n,o) { // v3
 </head>
 
 <body background="images/bkg-groove.gif" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="initialize()" onblurry="window.focus()">
-<form name="form1" method="post" action="<? print($HTTP_SERVER_VARS['SCRIPT_NAME']) ; ?>">
+<form name="form1" method="post" action="<?php print($_SERVER['SCRIPT_NAME']) ; ?>">
   <table width="370" height="98%" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr>
       <td><table width="370" border="0" align="center" cellpadding="0" cellspacing="8">
         <tr>
-          <td height="20" colspan="4" class="subhead">Edit<strong> &quot;<? print($a_form_vars[label]); ?>&quot;<br>
+          <td height="20" colspan="4" class="subhead">Edit<strong> &quot;<?php print($a_form_vars[label]); ?>&quot;<br>
             </strong>
               <hr size="1" noshade>
           </td>
@@ -185,7 +185,7 @@ function popupWin(u,n,o) { // v3
             <table width="70" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="58" height="25">
-                  <input name="font" type="text" id="font" style="width:260" value="<? print($aCSS['font-family']); ?>">
+                  <input name="font" type="text" id="font" style="width:260" value="<?php print($aCSS['font-family']); ?>">
                 </td>
                 <td width="12" height="25" class="text">&nbsp;</td>
               </tr>
@@ -217,14 +217,14 @@ function popupWin(u,n,o) { // v3
             <table width="70" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="58">
-                  <input name="size" type="text" id="size" style="width:50" value="<? print($aCSS['font-size']); ?>">
+                  <input name="size" type="text" id="size" style="width:50" value="<?php print($aCSS['font-size']); ?>">
                 </td>
                 <td width="12" class="text">px</td>
               </tr>
             </table>
           </td>
           <td width="39" height="20" align="right" class="text">Weight:&nbsp;</td>
-          <td width="106" height="20"><? print($fWeight) ;?> </td>
+          <td width="106" height="20"><?php print($fWeight) ;?> </td>
         </tr>
         <tr>
           <td height="20" align="right" class="text">Line&nbsp;Height:&nbsp;</td>
@@ -232,14 +232,14 @@ function popupWin(u,n,o) { // v3
             <table width="70" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="58" height="25">
-                  <input name="lineheight" type="text" id="lineheight" style="width:50" value="<? print($aCSS['line-height']); ?>">
+                  <input name="lineheight" type="text" id="lineheight" style="width:50" value="<?php print($aCSS['line-height']); ?>">
                 </td>
                 <td width="12" height="25" class="text">px</td>
               </tr>
             </table>
           </td>
           <td height="20" align="right" class="text">Style:&nbsp;</td>
-          <td height="20"> <? print($fStyle) ;?> </td>
+          <td height="20"> <?php print($fStyle) ;?> </td>
         </tr>
         <tr>
           <td height="20" align="right" valign="top" nowrap class="text">
@@ -252,18 +252,18 @@ function popupWin(u,n,o) { // v3
           <td height="20" class="text">
             <table width="106" border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td height="22"><input type="radio" name="decoration" <? if ( $aCSS['text-decoration'] == "" || !isset($aCSS['decoration']) ) { print(" checked "); }  ?>>
+                <td height="22"><input type="radio" name="decoration" <?php if ( $aCSS['text-decoration'] == "" || !isset($aCSS['decoration']) ) { print(" checked "); }  ?>>
                 </td>
                 <td height="22" class="text">Default</td>
               </tr>
               <tr>
                 <td width="26" height="22">
-                  <input type="radio" name="decoration" value="none"  <? if ( strip(" ", $aCSS['text-decoration']) == "none" ) { print(" checked "); }  ?>>
+                  <input type="radio" name="decoration" value="none"  <?php if ( strip(" ", $aCSS['text-decoration']) == "none" ) { print(" checked "); }  ?>>
                 </td>
                 <td width="80" height="22" class="text">none</td>
               </tr>
               <tr>
-                <td height="22"><input type="radio" name="decoration" value="underline" <? if ( strip(" ", $aCSS['text-decoration']) == "underline" ) { print(" checked "); }  ?>>
+                <td height="22"><input type="radio" name="decoration" value="underline" <?php if ( strip(" ", $aCSS['text-decoration']) == "underline" ) { print(" checked "); }  ?>>
                 </td>
                 <td height="22" class="text">underline</td>
               </tr>
@@ -279,7 +279,7 @@ function popupWin(u,n,o) { // v3
           <td height="20" valign="top"><table width="83" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="25" height="25">
-                  <input onChange="document.all.colorpicker_color.style.backgroundColor=this.value" name="color" type="text" id="color" style="width:70" value="<? print($aCSS['color']); ?>">
+                  <input onChange="document.all.colorpicker_color.style.backgroundColor=this.value" name="color" type="text" id="color" style="width:70" value="<?php print($aCSS['color']); ?>">
                 </td>
                 <td width="58" height="25" class="text"><a href="javascript:;" onClick="popupWin('color_picker.php?obj=color','colorpicker','width=560,height=180,scrollbars=no,centered=1')"><img src="images/colorpicker.gif" name="colorpicker_color" width="20" height="18" border="0" id="colorpicker_color" style="background-color: #cccccc"></a></td>
               </tr>
@@ -291,7 +291,7 @@ function popupWin(u,n,o) { // v3
         </tr>
         <tr align="right">
           <td height="20" colspan="4" nowrap class="text"><input name="save" type="hidden" id="save3" value="yes">
-              <input name="obj" type="hidden" id="obj" value="<? print($a_form_vars[obj]); ?>">
+              <input name="obj" type="hidden" id="obj" value="<?php print($a_form_vars[obj]); ?>">
               <input type="button" name="Submit2" value="Cancel" onclick="window.close()">
 &nbsp;&nbsp;
       <input name="submit" type="submit" value="Save">

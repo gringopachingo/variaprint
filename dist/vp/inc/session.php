@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -44,10 +44,10 @@ if (!IsSet($a_form_vars[sid])) {
 		
 		
 		$os_sid = $rand . $rand2 . $rand3;	
-		if (IsSet($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"])) {
-			$os_sid .=  "_" . $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"] ;//.
+		if (IsSet($_SERVER["HTTP_X_FORWARDED_FOR"])) {
+			$os_sid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;//.
 		} else {
-			$os_sid .= "_" . $HTTP_SERVER_VARS["REMOTE_ADDR"];
+			$os_sid .= "_" . $_SERVER["REMOTE_ADDR"];
 		}
 		$a_form_vars[sid] = encrypt($os_sid,"encryptit") ;
 	}
@@ -55,12 +55,12 @@ if (!IsSet($a_form_vars[sid])) {
 
 setcookie("sid", $a_form_vars[sid]);
 $os_sid = $a_form_vars[sid]  ;//urlencode ()
-if ( !ereg("sid=", $HTTP_SERVER_VARS["REQUEST_URI"]) ) {
-	if (ereg("\?", $HTTP_SERVER_VARS["REQUEST_URI"]) ) { 
-		header ("Location: " . $HTTP_SERVER_VARS[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+if ( !ereg("sid=", $_SERVER["REQUEST_URI"]) ) {
+	if (ereg("\?", $_SERVER["REQUEST_URI"]) ) { 
+		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
 		exit;
 	} else {
-		header ("Location: " . $HTTP_SERVER_VARS[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
 		exit;
 	}
 }

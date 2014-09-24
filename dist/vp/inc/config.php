@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,19 +33,19 @@
 // *******************************************************
 
 
-	$cfg_www_dir = "/www/";
+	$cfg_www_dir = "/home/www-data/sites.cplitho.com/public_html/";
 	$cfg_sub_dir = "/vp/";
 	$cfg_tmp_dir = "/tmp/";
-	$cfg_base_dir = "/www/vp/";
+	$cfg_base_dir = "/home/www-data/sites.cplitho.com/public_html/vp/";
 
-	$cfg_system_from_email = "";
-	$cfg_invoice_from_email = "";
-	$cfg_admin_email = ""; // comma-delimited list
+	$cfg_system_from_email = "info@cplitho.com";
+	$cfg_invoice_from_email = "orders@cplitho.com";
+	$cfg_admin_email = "weshall@gmail.com"; // comma-delimited list
 	$cfg_pdflib_license = "";
-	$cfg_DB = "vp";
+	$cfg_DB = "variaprint";
 	$cfg_DB_host = "localhost";
-	$cfg_DB_username = "";
-	$cfg_DB_password = "";
+	$cfg_DB_username = "varia";
+	$cfg_DB_password = "variaprintpass";
 	$cfg_DB_connection = mysql_connect($cfg_DB_host, $cfg_DB_username, $cfg_DB_password);
 	$cfg_DB_select = mysql_select_db($cfg_DB, $cfg_DB_connection);
 

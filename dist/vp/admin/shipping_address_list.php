@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -36,7 +36,7 @@
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
 	
-	session_name("ms_sid");
+	session_name("ms-sid");
 	session_start();
 	
 	if (trim($_SESSION[site] ==""))
@@ -61,9 +61,9 @@ function closeWindow() {
       <div class="text">
         <form name="form1" method="get" action="">
 			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="500" height="420">
-			  <param name="movie" value="shipping_address_list.swf?site=<? print($_SESSION[site]); ?>">
+			  <param name="movie" value="shipping_address_list.swf?site=<?php print($_SESSION[site]); ?>">
 			  <param name="quality" value="high">
-			  <embed src="shipping_address_list.swf?site=<? print($_SESSION[site]); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="300"></embed>
+			  <embed src="shipping_address_list.swf?site=<?php print($_SESSION[site]); ?>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="500" height="300"></embed>
 			</object>
         </form>
       </div>

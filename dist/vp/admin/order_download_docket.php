@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -41,7 +41,7 @@
 	require_once("inc/session.php");
 	
 //	session_save_path("/www/tmp");
-	session_name("ms_sid");
+	session_name("ms-sid");
 	session_start();
 	$ms_sid = session_id();
 

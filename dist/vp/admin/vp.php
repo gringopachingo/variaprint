@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -50,7 +50,7 @@ require_once("inc/iface.php");
 require_once("inc/session.php");
 
 
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 
@@ -268,7 +268,7 @@ $menu = iface_menu($_SESSION[site],$_SESSION['user_id'],$_SESSION['tm'],$sel_men
 <html>
 <head>
 <title>Variaprint Manager</title>
-<?
+<?php
 print($header_content);
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -368,21 +368,21 @@ function addFiles() {
 </head>
 
 <body background="images/sidebar.gif" link="#121E37" vlink="#2C4781" leftmargin="0" topmargin="10" marginwidth="0" marginheight="10" onload="logoutRefresh()" onunload="doUnload()">
-<?
+<?php
 if (!isset($form_method)) {
 	$form_method = "get";
 }
 ?>
 
-<form action="vp.php" method="<? print($form_method); ?>">
+<form action="vp.php" method="<?php print($form_method); ?>">
   <table width="761" border="0" cellpadding="0" cellspacing="0">
-<? if ( isset($_SESSION['site']) && $_SESSION['site'] != "") { ?>
+<?php if ( isset($_SESSION['site']) && $_SESSION['site'] != "") { ?>
     <tr>
       <td class="text">&nbsp;</td>
       <td class="text">
         <table  border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td nowrap bgcolor="#FFFFFF" class="text"><a href="vp.php?action=site_open&user_id=<? 
+            <td nowrap bgcolor="#FFFFFF" class="text"><a href="vp.php?action=site_open&user_id=<?php 
 		print($_SESSION[user_id]); ?>">open&nbsp;order&nbsp;site</a><span class="title"> </span> </td>
             <td align="right" nowrap bgcolor="#FFFFFF" class="text">&nbsp;</td>
           </tr>
@@ -398,7 +398,7 @@ if (!isset($form_method)) {
             <td bgcolor="#F3F3F3" class="text">
               <table width="575" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <td class="title"><span class="text">editing site:</span> <?
+                  <td class="title"><span class="text">editing site:</span> <?php
 		
 		print(
 	  	" 
@@ -408,7 +408,7 @@ if (!isset($form_method)) {
 		
 		?>
                   </td>
-                  <td nowrap class="text"><?
+                  <td nowrap class="text"><?php
 		
 		print(
 	  	" 
@@ -417,7 +417,7 @@ if (!isset($form_method)) {
 		
 		?>
                   </td>
-                  <td width="150" align="right" nowrap class="text"><a href="../vp.php?site=<? print($_SESSION[site]); ?>&mode=test" target="test">view&nbsp;order&nbsp;site</a>&nbsp;...<a href="vp.php?action=logout"><span class="title"><strong></strong></span></a> &nbsp;&nbsp;&nbsp;<a href="javascript:;" onClick="popupWin('howtolink.php?s=<? print($_SESSION[site]); ?>','howtolink','height=100,width=300,centered=1')">link</a>&nbsp;...</td>
+                  <td width="150" align="right" nowrap class="text"><a href="../vp.php?site=<?php print($_SESSION[site]); ?>&mode=test" target="test">view&nbsp;order&nbsp;site</a>&nbsp;...<a href="vp.php?action=logout"><span class="title"><strong></strong></span></a> &nbsp;&nbsp;&nbsp;<a href="javascript:;" onClick="popupWin('howtolink.php?s=<?php print($_SESSION[site]); ?>','howtolink','height=100,width=300,centered=1')">link</a>&nbsp;...</td>
                 </tr>
               </table>
             </td>
@@ -428,13 +428,13 @@ if (!isset($form_method)) {
         <tr>
           <td colspan="4" valign="bottom" class="text">&nbsp;</td>
         </tr>
-        <? } ?>
+        <?php } ?>
     <tr>
       <td width="10" valign="bottom" class="text">&nbsp;</td> 
       <td width="131" rowspan="3" valign="top" class="text"><strong>Current User:</strong><br>
-        &quot;<em><? print($_SESSION['username']); ?></em>&quot; &nbsp;<br> 
+        &quot;<em><?php print($_SESSION['username']); ?></em>&quot; &nbsp;<br> 
           <a href="vp.php?action=logout">logout</a> 
-        &nbsp; <a href="javascript:;" onClick="popupWin('account_edit.php?user_id=<? print($_SESSION[user_id]); ?>','','width=550,height=380,centered=yes,resizable=yes')">edit</a>... 
+        &nbsp; <a href="javascript:;" onClick="popupWin('account_edit.php?user_id=<?php print($_SESSION[user_id]); ?>','','width=550,height=380,centered=yes,resizable=yes')">edit</a>... 
           <script language="JavaScript" type="text/JavaScript">
 		  var minutes = 21
 		  var refreshTimerInit = false
@@ -477,7 +477,7 @@ if (!isset($form_method)) {
           </tr>
       </table></td>
       <td width="20">&nbsp;</td>
-      <td width="640" valign="top"><? print($menu); ?></td>
+      <td width="640" valign="top"><?php print($menu); ?></td>
     </tr>
     <tr>
       <td width="10" rowspan="2"><img src="images/spacer.gif" width="10" height="1"></td> 
@@ -485,11 +485,11 @@ if (!isset($form_method)) {
       <td height="1" valign="top" class="text"><img src="images/spacer.gif" width="1" height="8"></td>
     </tr>
     <tr>
-      <td height="30" valign="top" class="text"><? print($submenu); ?></td>
+      <td height="30" valign="top" class="text"><?php print($submenu); ?></td>
     </tr>
     <tr>
       <td width="10" valign="top" class="text">&nbsp;</td> 
-      <td width="131" valign="top" class="text"><? if ( isset($_SESSION['site']) && $_SESSION['site'] != "") { 
+      <td width="131" valign="top" class="text"><?php if ( isset($_SESSION['site']) && $_SESSION['site'] != "") { 
 	
 	
 	/*  print(
@@ -497,16 +497,16 @@ if (!isset($form_method)) {
 		Name:  <strong>" . $_SESSION['site_name'] . "</strong > &nbsp; <a href=\"javascript:;\" onclick=\"popupWin('site_edit_name.php','renamesite','width=300,height=120,top=120,left=250')\">edit</a>...<br>
 		Status: <strong>$_SESSION[site_status]</strong> &nbsp;&nbsp; <a href=\"javascript:;\" onclick=\"popupWin('site_edit_status.php','renamestatus','width=300,height=120,top=100,left=230')\">edit</a>...
 		");*/
-	?>        &raquo; <a href="vp.php?action=home&ms_sid=<? 	print($ms_sid); ?>"> 
+	?>        &raquo; <a href="vp.php?action=home&ms_sid=<?php 	print($ms_sid); ?>"> 
         welcome page</a> 
         <p> 
-          <? } ?>
+          <?php } ?>
       <p><img src="images/vp-logo.gif" width="120" height="25"> <strong><br>
           <br>
-          <font color="#999999"><? print($_SESSION[site]); ?>
+          <font color="#999999"><?php print($_SESSION[site]); ?>
 	    <img src="images/spacer.gif" width="1" height="40"><img src="images/spacer.gif" width="130" height="1"></font></strong></p> </td>
       <td><img src="images/spacer.gif" width="20" height="1"></td>
-      <td valign="top"><?
+      <td valign="top"><?php
 	  
 	  print($content . "\n<br><br><br><br>");
 //	 print("<textarea cols=100 rows=6 style=\"width: 600\">");
@@ -517,8 +517,8 @@ if (!isset($form_method)) {
       </td>
     </tr>
   </table>
-<input type="hidden" name="user_id" value="<? print($a_form_vars['user_id']); ?>">
-<input type="hidden" name="action-disabled" value="<? print($action); ?>">
+<input type="hidden" name="user_id" value="<?php print($a_form_vars['user_id']); ?>">
+<input type="hidden" name="action-disabled" value="<?php print($action); ?>">
 </form>
 <script language="Javascript">
 <!--

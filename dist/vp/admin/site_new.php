@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 
@@ -129,7 +129,7 @@ $site_select .= "</select>";
 ?>
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>New Order Site</title>
@@ -141,7 +141,7 @@ print($header_content);
 <table width="100%" height="90%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <td align="center">
-<form name="form1" method="get" action="<? print($_SERVER['SCRIPT_NAME']) ; ?>">
+<form name="form1" method="get" action="<?php print($_SERVER['SCRIPT_NAME']) ; ?>">
         <table width="342" border="0" cellspacing="0" cellpadding="5">
           <tr> 
             <td colspan="2" nowrap class="title"><strong>Create new order site</strong></td>
@@ -152,7 +152,7 @@ print($header_content);
           </tr>
           <tr> 
             <td nowrap class="text">Based on order site:</td>
-            <td><? print($site_select); ?></td>
+            <td><?php print($site_select); ?></td>
           </tr>
           <tr> 
             <td colspan="2" class="text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input name="site_copy_items" type="checkbox" id="site_copy_items" value="yes">

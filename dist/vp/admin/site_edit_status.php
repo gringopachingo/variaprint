@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("ms-sid");
 session_start();
 $ms_sid = session_id();
 
@@ -89,7 +89,7 @@ if ($site_status == "Live") {
 ?>
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>Change Site Status</title>
@@ -116,10 +116,10 @@ print($header_content);
             <td colspan="9">&nbsp;</td>
           </tr>
           <tr> 
-            <td><input type="radio" name="site_status" value="Live" <? print($live_check); ?>></td>
+            <td><input type="radio" name="site_status" value="Live" <?php print($live_check); ?>></td>
             <td class="text">Live</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td><input type="radio" name="site_status" value="Inactive" <? print($inactive_check); ?>></td>
+            <td><input type="radio" name="site_status" value="Inactive" <?php print($inactive_check); ?>></td>
             <td class="text">Inactive</td>
             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td><input name="Submit2" type="button" class="text" onClick="window.close()" value="Cancel"></td>
