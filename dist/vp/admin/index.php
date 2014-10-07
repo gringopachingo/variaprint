@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -34,7 +34,7 @@
 
 
 //session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("mssid");
 session_start();
 //session_destroy();
 
@@ -75,14 +75,14 @@ function logoutRefresh(childWindow) {
 <body onLoad="ff()" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <form name="form1" method="post" action="vp.php">
 <input type="hidden" name="minutes" value="0">
-  <? if ($_SESSION['show_alert'] == "1") { ?>
+  <?php if ($_SESSION['show_alert'] == "1") { ?>
   <table height="53" border="0" align="center" cellpadding="10" cellspacing="10" bgcolor="#FFCC33">
     <tr> 
       <td class="text"><? print($_SESSION['alert_msg']); $_SESSION['alert_msg'] = ""; $_SESSION['show_alert'] = 0;?></td>
     </tr>
   </table>
   <br>
-  <? } ?>
+  <?php } ?>
   <br>
   <table width="552" height="39" border="0" align="center" cellpadding="0" cellspacing="0">
     <tr valign="bottom">
@@ -120,16 +120,16 @@ function logoutRefresh(childWindow) {
           <tr> 
             <td colspan="5" valign="bottom">
             	<input name="action" type="hidden" id="action" value="login">
-			<? if ($_SESSION['already_logged_in']) { 
+			<?php if ($_SESSION['already_logged_in']) { 
 				$_SESSION['already_logged_in'] = 0;
 			?>
 				<input type="checkbox" value="true" name="override"> <span class="text">Override login</span>
-			<? } else { ?>
+			<?php } else { ?>
 				<a href="createaccount.php"><img src="images/login-newaccount.gif" width="164" height="10" vspace="5" border="0"></a>
 			  <br>
             <a href="forgotpswd.php"><img src="images/forgotpswd.gif" width="141" height="12" hspace="1" border="0"></a><br>
 			<img src="images/spacer.gif" width="270" height="1">
-			<? } ?> </td>
+			<?php } ?> </td>
           </tr>
         </table></td>
     </tr>

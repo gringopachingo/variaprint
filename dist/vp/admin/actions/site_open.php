@@ -1,5 +1,4 @@
-<?
-
+<?php
 // *******************************************************
 // 
 // VariaPrint 1.0 web-to-print system
@@ -37,7 +36,6 @@ $_SESSION['site_status'] = "" ;
 
 $formOptions = "name=\"form1\" target=\"_top\" method=\"get\" action=\"vp.php\"";
 $showform = 0; // $aUser = getAdminUserRecord($HTTP_COOKIE_VARS[adminlogin]);
-
 // LIST OF SITES
 $sql = "SELECT ID,Name FROM Sites WHERE MasterUID='$_SESSION[user_id]' AND Status!='Deleted' ORDER BY Name"; 
 $nResult = dbq($sql);
@@ -57,6 +55,7 @@ if ( mysql_num_rows($nResult) > 0) {
 	$havesites = false;
 }
 
+exit(print_r($_SESSION));
 $sql = "SELECT Username FROM AdminUsers WHERE ID='$_SESSION[user_id]'"; 
 $nResult = dbq($sql);
 $a_result = mysql_fetch_assoc($nResult);

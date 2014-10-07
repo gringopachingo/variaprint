@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -35,7 +35,7 @@
 
 	if (isset($a_form_vars["savedorderid"])) {
 		$_SESSION[os_page] = "catalog";
-		$sql = "UPDATE Cart SET SessionID='$os_sid' WHERE SavedID='$a_form_vars[savedorderid]' AND SiteID='$_SESSION[site]'";
+		$sql = "UPDATE Cart SET SessionID='$ossid' WHERE SavedID='$a_form_vars[savedorderid]' AND SiteID='$_SESSION[site]'";
 		dbq($sql);
 	}
 

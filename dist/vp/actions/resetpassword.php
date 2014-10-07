@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -57,7 +57,7 @@ if ($a_form_vars[username] != "") {
 		$sql = "UPDATE Users SET Password='$resetCodeEnc' WHERE $where";
 		dbq($sql);
 		
-		$message = "To reset your password go to:\nhttps://{$cfg_secure_url}{$cfg_secure_dir}{$cfg_sub_dir}vp.php?os_page=up&rc=$resetCode&os_sid=$os_sid";
+		$message = "To reset your password go to:\nhttps://{$cfg_secure_url}{$cfg_secure_dir}{$cfg_sub_dir}vp.php?os_page=up&rc=$resetCode&ossid=$ossid";
 
 		$recipient = $email ;
 		$subject = "Your password" ;
@@ -90,7 +90,7 @@ if ($a_form_vars[username] != "") {
 		$_SESSION['show_alert'] = 1;
 		$_SESSION['alert_msg'] = "We couldn't find your account. <br><br>
 		Double check the email address or username you entered, or 
-		<a href=\"vp.php?site=$_SESSION[site]&os_page=login&os_sid=$_SESSION[os_sid]\">create a new account</a>. ";
+		<a href=\"vp.php?site=$_SESSION[site]&os_page=login&ossid=$_SESSION[ossid]\">create a new account</a>. ";
 	}
 	
 } else {

@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-session_name("ms-sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 require_once("../inc/config.php");
 require_once("../inc/functions-global.php");

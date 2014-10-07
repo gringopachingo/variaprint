@@ -69,7 +69,7 @@
 					}
 				}
 				if (doimpose) {
-					popupWin('order_impose.php?ms_sid=$ms_sid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
+					popupWin('order_impose.php?mssid=$mssid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
 				}
 			}
 		}
@@ -105,7 +105,7 @@
 	
 	$submenu = "
 	Create Impositions 
-	&nbsp; &nbsp; <a href=\"vp.php?action=order_list_imp_hist&ms_sid=$ms_sid\">Download Dockets / Impositions</a>
+	&nbsp; &nbsp; <a href=\"vp.php?action=order_list_imp_hist&mssid=$mssid\">Download Dockets / Impositions</a>
 	&nbsp; &nbsp; <a href=\"javascript:;\" onClick=\"popupWin('itempreseteditors/item_presets_editor.php?edit=imposition','style','width=550,height=465,centered=1')\">Imposition Styles</a>...
 	";
 		
@@ -140,7 +140,7 @@
 		
 		$supplierMenu = "
 			Show items for vendor:<br>
-			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&ms_sid=$ms_sid''\">
+			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&mssid=$mssid''\">
 			$supplierMenu</select>
 		";
 		$whereUser1 = "";
@@ -194,7 +194,7 @@
 	
 	
 	// make pulldown of impositions
-	$pd = "<select name=\"sel_imposition\" class=\"text\" onchange=\"document.location='vp.php?sel_imposition=' + this.value + '&ms_sid=$ms_sid'\" style=\"width: 180\">\n";
+	$pd = "<select name=\"sel_imposition\" class=\"text\" onchange=\"document.location='vp.php?sel_imposition=' + this.value + '&mssid=$mssid'\" style=\"width: 180\">\n";
 	$sel_imp = $_SESSION['sel_imposition'];
 	while ( $a_result = mysql_fetch_assoc($r_result) ) {
 		if ($sel_imp == "") { $sel_imp = $a_result[ID]; }
@@ -377,8 +377,8 @@ if ( $num_orderitems == 0 ) {
 				<td class=\"text\" height=\"$rowheight\">" . $a_item[ $a['ItemID'] ] . "</td>
 				<td class=\"text\" height=\"$rowheight\">" . $order_email . "</td>
 				<td width=\"120\" class=\"text\">
-				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View raster proof\" onClick=\"popupWin('itempreview.php?id=$a[ID]&ms_sid=$ms_sid','','width=600,height=500,centered=yes')\">proof</a>... &nbsp;  
-				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View PDF proof\" onClick=\"alert('Note: Do not edit PDF press files in Illustrator. This may lead to unexpected results.'); popupWin('../orderitem_file.php?id=".$a[ID]."&mode=presspdf&ms_sid=".$ms_sid."','','width=400,height=400,centered=yes')\">press</a>...
+				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View raster proof\" onClick=\"popupWin('itempreview.php?id=$a[ID]&mssid=$mssid','','width=600,height=500,centered=yes')\">proof</a>... &nbsp;  
+				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View PDF proof\" onClick=\"alert('Note: Do not edit PDF press files in Illustrator. This may lead to unexpected results.'); popupWin('../orderitem_file.php?id=".$a[ID]."&mode=presspdf&mssid=".$mssid."','','width=400,height=400,centered=yes')\">press</a>...
 				</td>
 			<!--	
 				<td class=\"text\" width=\"20\" nowrap align=\"right\" height=\"$rowheight\">
@@ -387,7 +387,7 @@ if ( $num_orderitems == 0 ) {
 				<td class=\"text\" width=\"10\" >" . $a['Qty'] . "</td>
 				
 				<td class=\"text\" width=\"20\" height=\"$rowheight\" nowrap>
-					<a href=\"vp.php?ms_sid=$ms_sid&action=order_search_results&init_search=1&s&ordernumber=$a[OrderID]\">".$a[OrderID]."</a>
+					<a href=\"vp.php?mssid=$mssid&action=order_search_results&init_search=1&s&ordernumber=$a[OrderID]\">".$a[OrderID]."</a>
 				</td>
 				<!--
 				<td class=\"text\" height=\"$rowheight\">

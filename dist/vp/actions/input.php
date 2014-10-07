@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -55,7 +55,7 @@
 		$sql = "INSERT INTO Cart SET 
 			OptionalFieldSets='$xml',
 			SiteID='$_SESSION[site]', 
-			SessionID='$os_sid',
+			SessionID='$ossid',
 			ItemID='$_SESSION[itemid]',
 			Cost='$cost',
 			Qty='$qty'";

@@ -38,7 +38,7 @@
 	require_once("../inc/functions-global.php");
 	$a_form_vars = array_merge($_GET,$_POST);
 	
-	session_name("ms-sid");	
+	session_name("mssid");	
 	session_start();
 	
 	if ($a_form_vars['action']=="read" && $a_form_vars['pw'] == "baa320d3093c1ef22d49e6dca09e37e8") {

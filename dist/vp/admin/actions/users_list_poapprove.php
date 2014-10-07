@@ -64,7 +64,7 @@
 					}
 				}
 				if (doimpose) {
-					popupWin('order_impose.php?ms_sid=$ms_sid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
+					popupWin('order_impose.php?mssid=$mssid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
 				}
 			}
 		}

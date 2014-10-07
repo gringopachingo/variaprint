@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -35,7 +35,7 @@
 //	$a_site_settings = GetSiteAttributes($_SESSION[site], $_SESSION[mode]);
 	
 	if ($_SESSION['logged_in'] == 0 && $a_site_settings['CatalogRequireLogin'] == "Catalog") {
-		header("Location: vp.php?os_page_afterlogin=catalog&os_page=login&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]");
+		header("Location: vp.php?os_page_afterlogin=catalog&os_page=login&ossid=$_SESSION[ossid]&site=$_SESSION[site]");
 		exit;
 	}
 	

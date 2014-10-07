@@ -102,7 +102,7 @@ and rotated 360º.</p>
     To edit the type of form object that is displayed on the input screen when
       the buyer is personalizing the item, select the field and choose an option
       from &quot;Input
-      Type&quot; (on the left side of the properties palette) and click on &quot;Settings...&quot; to
+      Type&quot; (on the left msside of the properties palette) and click on &quot;Settings...&quot; to
       set specific options like the items listed in a pulldown menu, or the maximum
       number of characters allowed in a field.</p>
   <p class="text"><strong>2)</strong> To add a variable graphic field,

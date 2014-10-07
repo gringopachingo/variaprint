@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -110,12 +110,12 @@
 			$_SESSION['os_page'] = "catalog";
 			if ($a_item['ReqApproval'] == "false") {
 				$_SESSION['alert_msg'] = "You may add another item to this order from the catalog below or 
-				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&os_sid=$os_sid\">checkout</a> and complete your order.";
+				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&ossid=$ossid\">checkout</a> and complete your order.";
 
 			} else {
 				$_SESSION['alert_msg'] = "The item was approved with the initials &quot;$a_form_vars[approve_initials]&quot;. <br><br>
 				You may add another item to this order from the catalog below or 
-				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&os_sid=$os_sid\">checkout</a> and complete your order.
+				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&ossid=$ossid\">checkout</a> and complete your order.
 				";
 			}
 			$_SESSION['show_alert'] = 1;

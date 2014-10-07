@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -38,9 +38,9 @@
 	require_once("inc/functions.php");
 	require_once("inc/iface.php");
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	
 	foreach ($_SESSION as $k=>$v) session_unset($_SESSION[$k]);
@@ -119,7 +119,7 @@
 
 		// login  here
 		$time = time();
-		$sql = "UPDATE AdminUsers SET LastSID='$ms_sid', DateLastLogin='$time' WHERE ID='$userID'";
+		$sql = "UPDATE AdminUsers SET LastSID='$mssid', DateLastLogin='$time' WHERE ID='$userID'";
 		$nUpdate = dbq($sql);
 		
 		$_SESSION['user_id'] = $userID;

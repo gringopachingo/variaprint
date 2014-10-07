@@ -33,42 +33,43 @@
 // *******************************************************
 
 
-if (!IsSet($a_form_vars['ms_sid'])) {
-	if (IsSet($HTTP_COOKIE_VARS['ms_sid'])) {	
-		$a_form_vars[ms_sid] = $HTTP_COOKIE_VARS['ms_sid'];
+if (!IsSet($a_form_vars['mssid'])) {
+	if (IsSet($HTTP_COOKIE_VARS['mssid'])) {	
+		$a_form_vars['mssid'] = $HTTP_COOKIE_VARS['mssid'];
 	} else {
 		srand((double)microtime()*1000000); 
 		$rand = rand(1000000000,99999999999999);
 		$rand2 = rand(1000000000,99999999999999);
 		$rand3 = rand(1000000000,99999999999999);
 		
-		
-		$ms_sid = $rand . $rand2 . $rand3;	
+		$mssid = $rand . $rand2 . $rand3;	
 		if (IsSet($_SERVER["HTTP_X_FORWARDED_FOR"])) {
-			$ms_sid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;
+//			$mssid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;
+
 		} else {
-			$ms_sid .= "_" . $_SERVER["REMOTE_ADDR"];
+//			$mssid .= "_" . $_SERVER["REMOTE_ADDR"];
 		}
-		$a_form_vars[ms_sid] = urlencode( encrypt($ms_sid,"encryptit") ) ;
+		$a_form_vars['mssid'] = urlencode( encrypt($mssid,"encryptit") ) ;
+		$a_form_vars['mssid'] = $mssid;
 	}
 }
 
 
-setcookie("ms_sid", $a_form_vars['ms_sid'],time()+3600*24*90 );
-$ms_sid = $a_form_vars[ms_sid]  ;//urlencode ()
-if ( !ereg("ms_sid=", $_SERVER["REQUEST_URI"]) ) {
+setcookie("mssid", $a_form_vars['mssid'],time()+3600*24*90 );
+$mssid = $a_form_vars['mssid']  ;//urlencode ()
+if ( !ereg("mssid=", $_SERVER["REQUEST_URI"]) ) {
 	if (ereg("\?", $_SERVER["REQUEST_URI"]) ) { 
-		header ("Location: " . $_SERVER[REQUEST_URI] . "&ms_sid=". $ms_sid);
+		header ("Location: " . $_SERVER['REQUEST_URI'] . "&mssid=". $mssid);
 		exit;
 	} else {
-		header ("Location: " . $_SERVER[REQUEST_URI] . "?ms_sid=". $ms_sid);
+		header ("Location: " . $_SERVER['REQUEST_URI'] . "?mssid=". $mssid);
 		exit;
 	}
 }
 
 
-function session_get_vars($ms_sid) {
-	$sql = "SELECT * FROM Sessions WHERE SessionID='$ms_sid'";
+function session_get_vars($mssid) {
+	$sql = "SELECT * FROM Sessions WHERE SessionID='$mssid'";
 	$nResult = dbq($sql);
 	$aSession = mysql_fetch_assoc($nResult);
 	$aSessionVars = xml_get_tree($aSession['SessionVars']);
@@ -80,9 +81,9 @@ function session_get_vars($ms_sid) {
 	return $aSavedVars;
 }
 
-function session_save_vars($ms_sid, $aVars) {
+function session_save_vars($mssid, $aVars) {
 	
-	$aSavedVars = session_get_vars($ms_sid);
+	$aSavedVars = session_get_vars($mssid);
 	
 	if ( is_array($aVars) ) {
 		while ( list($k, $v) = each($aVars) ) {
@@ -90,7 +91,7 @@ function session_save_vars($ms_sid, $aVars) {
 		}
 	}
 
-	$xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<session id=\"$ms_sid\" ip=\"$_SERVER[REMOTE_ADDR]\">\n";
+	$xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<session id=\"$mssid\" ip=\"$_SERVER[REMOTE_ADDR]\">\n";
 	if ( is_array($aSavedVars) ) { 
 		while ( list($k, $v) = each($aSavedVars) ) {
 			if ($k != "") { $xml .= "<variable id=\"$k\" value=\"$v\"/>\n"; }
@@ -100,11 +101,11 @@ function session_save_vars($ms_sid, $aVars) {
 	
 	$xml = addslashes($xml);
 	
-	$sql = "SELECT ID FROM Sessions WHERE SessionID='$ms_sid'"; $nResult = dbq($sql); 
+	$sql = "SELECT ID FROM Sessions WHERE SessionID='$mssid'"; $nResult = dbq($sql); 
 	if ( mysql_num_rows($nResult) == 0) {
-		$sql = "INSERT INTO Sessions SET SessionVars='$xml', SessionID='$ms_sid'";
+		$sql = "INSERT INTO Sessions SET SessionVars='$xml', SessionID='$mssid'";
 	} else {
-		$sql = "UPDATE Sessions SET SessionVars='$xml' WHERE SessionID='$ms_sid'";
+		$sql = "UPDATE Sessions SET SessionVars='$xml' WHERE SessionID='$mssid'";
 	}
 	$nUpdate = dbq($sql);
 }

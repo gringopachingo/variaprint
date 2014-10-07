@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,7 +39,7 @@ function item_row($a_item) {
 
 	if ($a_item['Description'] != "" || $a_item['LargeIconLink'] != "") {
 		// Show button
-		$detail_btn = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&os_sid=$_SESSION[os_sid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-info.gif\" border=\"0\"></a>";
+		$detail_btn = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&ossid=$_SESSION[ossid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-info.gif\" border=\"0\"></a>";
 	} else {
 		$detail_btn = "<img src=\"images/spacer.gif\" border=\"0\" width=\"17\">";
 	}
@@ -83,8 +83,8 @@ function item_icon($a_item) {
 	
 	if ($a_item['Description'] != "" || $a_item['LargeIconLink'] != "") {
 		// Show button
-		$detail_btn = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&os_sid=$_SESSION[os_sid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-info.gif\" align=\"absmiddle\" border=\"0\"></a>";
-		$img = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&os_sid=$_SESSION[os_sid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\">"
+		$detail_btn = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&ossid=$_SESSION[ossid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-info.gif\" align=\"absmiddle\" border=\"0\"></a>";
+		$img = "<a href=\"javascript:;\" onClick=\"popupWin('itemdetail.php?site=$_SESSION[site]&item=$a_item[ID]&ossid=$_SESSION[ossid]','','width=500,height=450,resizable=1,scrollbars=1,centered=1')\">"
 			.$img."</a>";
 	} 
 		
@@ -109,7 +109,7 @@ function item_icon($a_item) {
 	$rowhilitecolor = $a_site_settings['CatalogRowHiliteColor'];
 	$title = $a_site_settings['CatalogTitle'];
 	$description = $a_site_settings['CatalogText'];
-	$os_sidebar = iface_make_sidebar($title, $description) . iface_make_cart_sidebar("Cart",$os_sid);
+	$os_sidebar = iface_make_sidebar($title, $description) . iface_make_cart_sidebar("Cart",$ossid);
 		
 	// Get item groups
 	$sql = "SELECT ItemGroups FROM Sites WHERE ID='$_SESSION[site]'";
@@ -167,7 +167,7 @@ function item_icon($a_item) {
 				
 				$a_item['qtypulldown'] = make_costqty_menu( $a_item['ID'] );
 												
-				$sql = "SELECT ID FROM Cart WHERE ItemID='$a_item[ID]' AND SessionID='$os_sid' AND SiteID='$_SESSION[site]'";
+				$sql = "SELECT ID FROM Cart WHERE ItemID='$a_item[ID]' AND SessionID='$ossid' AND SiteID='$_SESSION[site]'";
 				$r_result2 = dbq($sql);
 				$numrows = mysql_num_rows($r_result2) ;
 				if ($a_item['Custom'] != "N") {
@@ -211,7 +211,7 @@ function item_icon($a_item) {
 					<input type=\"hidden\" name=\"os_action\" value=\"addtocart\">
 					<input type=\"hidden\" name=\"itemid\" value=\"0\">";
 	
-			// $script_name?os_action=addtocart&itemid=" . $a_item['ID'] . "&sid=" . $os_sid . "
+			// $script_name?os_action=addtocart&itemid=" . $a_item['ID'] . "&sid=" . $ossid . "
 			$items .= iface_dottedline();
 			$mainbox = iface_make_box($items,600,100,0);
 			$content = $mainbox;

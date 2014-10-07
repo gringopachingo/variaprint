@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -42,7 +42,7 @@ if ( isset($a_form_vars['itemid']) ) {
 		$n_update = dbq($sql, "updating optional field sets");
 	} else {
 		$sql = "INSERT INTO Cart SET 
-			SessionID='$os_sid', 
+			SessionID='$ossid', 
 			SiteID='$_SESSION[site]', 
 			ItemID='$a_form_vars[itemid]', 
 			Cost='$a_form_vars[cost]', 

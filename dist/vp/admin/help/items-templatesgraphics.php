@@ -67,7 +67,7 @@ variable graphics in the template editor:</p>
 <p class="text">The preferred raster graphics
     format is a high-quality JPEG (use 10-12 compression in Photoshop) or PNG
   file. Although other formats will work,
-        they are considerably
+        they are conmssiderably
         larger (TIFF) or have limitations in the color quality (GIF) and should
         not be used unless there is a specific reason.</p>
 <p class="text"><em>Note: If you use a GIF image,

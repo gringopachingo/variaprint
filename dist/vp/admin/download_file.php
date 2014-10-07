@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -47,9 +47,9 @@
 	}
 	
 	if($error){
-		session_name("ms_sid");
+		session_name("mssid");
 		session_start();
-		$ms_sid = session_id();
+		$mssid = session_id();
 				
 		$msg = "
 		There was an attempt to download \"$_GET[file_in]\" through download_file.php

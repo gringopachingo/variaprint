@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -34,13 +34,13 @@
 
 	
 	if ($_GET['mode']=="admin") {
-		session_name("ms_sid");
+		session_name("mssid");
 		session_start();
-		$ms_sid = session_id();
+		$mssid = session_id();
 	} else {
-		session_name("os_sid");
+		session_name("ossid");
 		session_start();
-		$os_sid = session_id();
+		$ossid = session_id();
 	}
 //	print_r($_SESSION);
 

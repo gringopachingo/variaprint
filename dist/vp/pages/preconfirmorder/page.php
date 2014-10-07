@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -48,8 +48,8 @@
 	
 	$invoice .= invoice("pre") . 
 	pad_it("
-	<a href=\"$script_name?site=$_SESSION[site]&os_action=checkout&os_sid=$_SESSION[os_sid]\"><input class=\"button\" type=\"button\" value=\"&laquo; Back\" ".
-		"onclick=\"document.location = '$script_name?os_action=checkout&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"></a>
+	<a href=\"$script_name?site=$_SESSION[site]&os_action=checkout&ossid=$_SESSION[ossid]\"><input class=\"button\" type=\"button\" value=\"&laquo; Back\" ".
+		"onclick=\"document.location = '$script_name?os_action=checkout&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"></a>
 			<input class=\"button\" type=\"submit\" value=\"Confirm &raquo;\"> 
 			<input type=\"hidden\" name=\"os_action\" value=\"confirmorder\"> 
 			<br><br>

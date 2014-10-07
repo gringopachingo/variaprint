@@ -48,7 +48,7 @@
 		
 		$sql = "
 		INSERT INTO Cart SET
-			SessionID='$ms_sid',
+			SessionID='$mssid',
 			SiteID='$_SESSION[site]', 
 			ItemID='$a_result[ItemID]',
 			Imprint='" . addslashes($a_result["Imprint"]) . "'
@@ -70,7 +70,7 @@
 		dbq($sql);
 		
 
-	//	$sql = "UPDATE Cart SET SessionID='$os_sid' WHERE SavedID='$a_form_vars[savedorderid]'";
+	//	$sql = "UPDATE Cart SET SessionID='$ossid' WHERE SavedID='$a_form_vars[savedorderid]'";
 	//	dbq($sql);
 		
 	

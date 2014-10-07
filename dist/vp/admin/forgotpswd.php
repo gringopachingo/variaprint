@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,7 +37,7 @@ require_once("../inc/encrypt.php");
 require_once("../inc/functions-global.php");
 
 // session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("mssid");
 session_start();
 
 if ($a_form_vars[action] == "reset") {
@@ -118,15 +118,15 @@ if ($a_form_vars[action] == "reset") {
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <form name="form1" method="post" action="forgotpswd.php">
-  <? if ($_SESSION['show_alert'] == "1") { 
+  <?php if ($_SESSION['show_alert'] == "1") { 
   $_SESSION['show_alert'] = "0";
   ?>
   <table height="53" border="0" align="center" cellpadding="10" cellspacing="10" bgcolor="#FFCC33">
     <tr> 
-      <td class="text"><? print($_SESSION['alert_msg']); ?></td>
+      <td class="text"><?php print($_SESSION['alert_msg']); ?></td>
     </tr>
   </table>
-  <?   } 
+  <?php   } 
 
   ?>
   <br>

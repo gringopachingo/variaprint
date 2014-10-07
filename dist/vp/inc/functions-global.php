@@ -361,18 +361,18 @@ function make_input_row($field_node) {
 			
 			if ($field_node['attributes']['METHOD'] == "library") {
 				$field = "
-					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Library Image...\" onClick=\"popupWin('".$cfg_sub_dir."imglib.php?title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">
+					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Library Image...\" onClick=\"popupWin('".$cfg_sub_dir."imglib.php?title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&ossid=$_SESSION[ossid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">
 					<input type=\"hidden\" name=\"field_$f_id\" value=\"$value\" >
 				";
 				if ($field_node['attributes']['ALLOWCUSTOM']=="true") {
 					$field .= " &nbsp; or &nbsp;  
-					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Custom Image...\" onClick=\"popupWin('".$cfg_sub_dir."custimg.php?cropw={$crop_w}&croph={$crop_h}&fc=".$field_node['attributes']['FORCECROP']."&title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">";
+					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Custom Image...\" onClick=\"popupWin('".$cfg_sub_dir."custimg.php?cropw={$crop_w}&croph={$crop_h}&fc=".$field_node['attributes']['FORCECROP']."&title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&ossid=$_SESSION[ossid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">";
 				}
 				$field .= "<input class=\"buttn\" type=\"button\" value=\"Clear\" onClick=\"document.forms[0].field_{$f_id}.value=''\">";
 				
 			} elseif ($field_node['attributes']['METHOD'] == "custom") {
 				$field = "
-					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Choose Custom Image...\" onClick=\"popupWin('".$cfg_sub_dir."custimg.php?cropw={$crop_w}&croph={$crop_h}&title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">
+					<input class=\"button\" type=\"button\" name=\"choose\" value=\"Choose Custom Image...\" onClick=\"popupWin('".$cfg_sub_dir."custimg.php?cropw={$crop_w}&croph={$crop_h}&title=".urlencode($label)."&obj=field_$f_id&site=$_SESSION[site]&ossid=$_SESSION[ossid]','library','width=600,height=450,centered=1,resizable=0,scrollbars=1')\">
 					<input class=\"buttn\" type=\"button\" value=\"Clear\" onClick=\"document.forms[0].field_{$f_id}.value=''\">
 					<input type=\"hidden\" name=\"field_$f_id\" value=\"$value\" >
 				";
@@ -465,7 +465,7 @@ function make_input_row($field_node) {
 	$help_text = $help_node[0]['value'];
 	
 	if ($help_img != "" || $help_text != "") {
-		$help = "<a href=\"javascript:;\" onClick=\"popupWin('itemhelp.php?site=$_SESSION[site]&itemid=$_SESSION[cartitemid]&fieldid=$f_id&os_sid=$_SESSION[os_sid]','helpwin','width=350,height=450,resizable=yes,scrollbars=yes,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-help.gif\"></a>";
+		$help = "<a href=\"javascript:;\" onClick=\"popupWin('itemhelp.php?site=$_SESSION[site]&itemid=$_SESSION[cartitemid]&fieldid=$f_id&ossid=$_SESSION[ossid]','helpwin','width=350,height=450,resizable=yes,scrollbars=yes,centered=1')\"><img src=\"_sites/$_SESSION[site]/ifaceimg/icon-help.gif\"></a>";
 	} else {
 		$help = "";
 	}

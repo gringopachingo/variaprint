@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,9 +32,9 @@
 //
 // *******************************************************
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
@@ -129,7 +129,7 @@
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>Approval Managers</title>
@@ -149,7 +149,7 @@ print($header_content);
       <td width="46"> &nbsp;&nbsp;&nbsp;</td>
     </tr>
     <tr> 
-      <td height="30"><input name="default_username" type="text" id="default_username" value="<? print($default_username); ?>">
+      <td height="30"><input name="default_username" type="text" id="default_username" value="<?php print($default_username); ?>">
         <input name="action" type="hidden" id="action" value="save"></td>
       <td align="right"> <input type="submit" name="Submit" value="Save"></td>
     </tr>
@@ -167,7 +167,7 @@ print($header_content);
       <td><strong>Email*</strong></td>
     </tr>
 	
-	<? print($managers); ?>
+	<?php print($managers); ?>
 	
   </table>
   <br>

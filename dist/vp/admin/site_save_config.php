@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,7 +37,7 @@ require_once("../inc/config.php");
 require_once("../inc/functions-global.php");
 
 //session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("mssid");
 session_start();
 
 if ($_POST['action'] == "save") {
@@ -88,7 +88,7 @@ if ($_POST['action'] == "save") {
           <br>
           Do you want to save those changes now? </p>
         <p align="right"> 
-          <?
+          <?php
 if (is_array($_GET)) {
 	foreach($_GET as $k=>$v) {
 		$f_hid .= "<input type=\"hidden\" name=\"$k\" value=\"$v\">\n";

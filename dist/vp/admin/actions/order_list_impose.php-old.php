@@ -69,7 +69,7 @@
 					}
 				}
 				if (doimpose) {
-					popupWin('order_impose.php?ms_sid=$ms_sid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
+					popupWin('order_impose.php?mssid=$mssid&' + hash,'downloadinvoices','width=600,height=450,scrollbars=yes,resizable=yes,centered=1')
 				}
 			}
 		}
@@ -103,7 +103,7 @@
 	";
 	
 	
-	$submenu = "Create Impositions &nbsp; &nbsp; <a href=\"vp.php?action=order_list_imp_hist&ms_sid=$ms_sid\">Download Dockets / Impositions</a>";
+	$submenu = "Create Impositions &nbsp; &nbsp; <a href=\"vp.php?action=order_list_imp_hist&mssid=$mssid\">Download Dockets / Impositions</a>";
 		
 	// Check the current user: Master can see everything, else only show items where 
 	if ($_SESSION['privilege'] == "owner") {
@@ -136,7 +136,7 @@
 		
 		$supplierMenu = "
 			Show items for vendor:<br>
-			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&ms_sid=$ms_sid''\">
+			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&mssid=$mssid''\">
 			$supplierMenu</select>
 		";
 		$whereUser1 = "";
@@ -190,7 +190,7 @@
 	
 	
 	// make pulldown of impositions
-	$pd = "<select name=\"sel_imposition\" class=\"text\" onchange=\"document.location='vp.php?sel_imposition=' + this.value + '&ms_sid=$ms_sid'\" style=\"width: 180\">\n";
+	$pd = "<select name=\"sel_imposition\" class=\"text\" onchange=\"document.location='vp.php?sel_imposition=' + this.value + '&mssid=$mssid'\" style=\"width: 180\">\n";
 	$sel_imp = $_SESSION['sel_imposition'];
 	while ( $a_result = mysql_fetch_assoc($r_result) ) {
 		if ($sel_imp == "") { $sel_imp = $a_result[ID]; }

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,9 +37,9 @@
 	require_once("inc/functions-global.php");
 	require_once("inc/functions_pdf.php");
 
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	$hash = "";
 	if (is_array($fv)) {
@@ -112,7 +112,7 @@
 					if ($row%2) { $bgcolor = "#eeeeee"; } else { $bgcolor = "#cccccc"; }
 					$row_list .= "
 						<td class=\"text\" valign=bottom>
-							<img border=1 src=\"icon.php?img=".urlencode("userimages/".$_SESSION[user_id]."/".$name)."&os_sid=".$_SESSION[os_sid]."&s=s.jpg\"><br>
+							<img border=1 src=\"icon.php?img=".urlencode("userimages/".$_SESSION[user_id]."/".$name)."&ossid=".$_SESSION[ossid]."&s=s.jpg\"><br>
 							".$name."<br><br>
 							<table cellpadding=0 cellspacing=0 border=0><tr><td>
 							<a href=\"javascript:;\" onClick=\"sel_img(this,'".$name."')\">
@@ -296,7 +296,7 @@ $min_height = round(($a_form_vars['croph']/72)*250);
           <td nowrap class="text">&nbsp;</td>
           <td height="32" valign="top" nowrap class="text"><p><input name="uploadbtn" type="button" value="Upload" onClick="startUpload()">            &nbsp;&nbsp;&nbsp;
       <input name="site" type="hidden" id="site" value="<? print($_SESSION[site]); ?>">
-      <input name="os_sid" type="hidden" id="os_sid" value="<? print($os_sid); ?>">
+      <input name="ossid" type="hidden" id="ossid" value="<? print($ossid); ?>">
       <input type="hidden" name="MAX_FILE_SIZE" value="10000000">      
       <input name="action" type="hidden" id="action" value="upload">
       <input name="folder" type="hidden" id="folder" value="<? print($_GET['folder']);  ?>">

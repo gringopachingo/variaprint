@@ -39,7 +39,7 @@
 </head>
 
 <frameset cols="200,*" framespacing="0" frameborder="NO" border="0">
-  <frame src="sidemenu.php" name="leftFrame" scrolling="AUTO" noresize>
+  <frame src="mssidemenu.php" name="leftFrame" scrolling="AUTO" noresize>
   <frame src="welcome.php" name="mainFrame">
 </frameset>
 <noframes><body>

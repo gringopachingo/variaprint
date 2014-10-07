@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -142,7 +142,7 @@ function setAddress(addr_id) {
 	$line = iface_dottedline();
 	
 	// SET UP PREFILL	
-	$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$os_sid'";
+	$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$ossid'";
 	$r_result = dbq($sql);
 	$a_result = mysql_fetch_assoc($r_result);
 	
@@ -194,7 +194,7 @@ function setAddress(addr_id) {
 	$checkout_btn = "<input class=\"button\" type=\"submit\" value=\"Continue &raquo;\">";
 	
 	$payment_pulldown = iface_payment_pulldown($a_site_settings, 
-		"onchange=\"document.location = '$script_name?billing_type=' + this.value + '&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]')\"", 
+		"onchange=\"document.location = '$script_name?billing_type=' + this.value + '&site=$_SESSION[site]&ossid=$_SESSION[ossid]')\"", 
 		$_SESSION['billing_type']);
 	
 	// Payment type
@@ -348,7 +348,7 @@ function setAddress(addr_id) {
 					
 				} else {
 					// If not, show create an account info
-					$account = "You have not setup a PO account yet. <a href=\"javascript:;\" onClick=\"popupWin('applyforpo.php?site=$_SESSION[site]&user_id=$_SESSION[user_id]&os_sid=$_SESSION[os_sid]','po','width=500,height=400,centered=1')\">Click here</a> to apply for one.";
+					$account = "You have not setup a PO account yet. <a href=\"javascript:;\" onClick=\"popupWin('applyforpo.php?site=$_SESSION[site]&user_id=$_SESSION[user_id]&ossid=$_SESSION[ossid]','po','width=500,height=400,centered=1')\">Click here</a> to apply for one.";
 				
 					$checkout_btn = "<input type=button value=\"Continue &raquo;\" onclick=\"alert('You must apply for a PO account or choose a different billing type before you can checkout.')\">";
 			
@@ -711,11 +711,11 @@ addr[$id]['zip'] = '".addslashes($addrnode['attributes']['ZIP'])."';
 	<!-- BUTTONS START HERE //-->
 	<table cellpadding=6 cellspacing=0 border=0 width=\"596\">
 		<tr><td width=\"500\" class=\"subtitle\">
-			<a href=\"$script_name?site=$_SESSION[site]&os_action=gotocart&os_sid=$_SESSION[os_sid]\">
-			<input class=\"button\" type=\"button\" value=\"&laquo; Back to cart\" onclick=\"document.location = '$script_name?os_action=gotocart&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"></a>
+			<a href=\"$script_name?site=$_SESSION[site]&os_action=gotocart&ossid=$_SESSION[ossid]\">
+			<input class=\"button\" type=\"button\" value=\"&laquo; Back to cart\" onclick=\"document.location = '$script_name?os_action=gotocart&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"></a>
 			$checkout_btn 
 			<input type=\"hidden\" name=\"os_action\" value=\"preconfirmorder\"> 
-			<input type=\"hidden\" name=\"sid\" value=\"$os_sid\"> 
+			<input type=\"hidden\" name=\"sid\" value=\"$ossid\"> 
 			<br><br>
 		</td></tr>
 	</table>

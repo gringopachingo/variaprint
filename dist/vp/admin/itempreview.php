@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -44,12 +44,12 @@
 	require_once("../inc/functions.php");	
 	require_once("../inc/iface.php");
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
 	if ($_SESSION["privilege"] == "owner") {
 		include("inc/popup_log_check.php");
 	}
-	$ms_sid = session_id();
+	$mssid = session_id();
 	
 	
 ?>
@@ -70,14 +70,14 @@
 	$a_item = mysql_fetch_assoc($r_result);
 
 	$pdf_proof	="
-		<a href=\"../orderitem_file.php?id=".$a_form_vars[id]."&mode=proofpdf&ms_sid=".$ms_sid."\" target=\"_blank\">View PDF proof</a>...
+		<a href=\"../orderitem_file.php?id=".$a_form_vars[id]."&mode=proofpdf&mssid=".$mssid."\" target=\"_blank\">View PDF proof</a>...
 		<br><br>
-		<a href=\"../orderitem_file.php?id=".$a_form_vars[id]."&mode=presspdf&ms_sid=".$ms_sid."\" target=\"_blank\" onClick=\"alert('Note: Do not edit PDF press files in Illustrator. This may lead to unexpected results.')\">View press PDF</a>...
+		<a href=\"../orderitem_file.php?id=".$a_form_vars[id]."&mode=presspdf&mssid=".$mssid."\" target=\"_blank\" onClick=\"alert('Note: Do not edit PDF press files in Illustrator. This may lead to unexpected results.')\">View press PDF</a>...
 		<br><br><br>
 		<a href=\"http://www.adobe.com/products/acrobat/readstep2.html\" target=\"_blank\">Download Adobe Acrobat Reader for PDF</a>...
 	";
 
-	$img_link = "../orderitem_file.php?id=".$a_form_vars[id]."&mode=raster&ms_sid=".$ms_sid ;//"_orderpdfs/". "_preview_raster.jpg"_preview_pdf.pdf
+	$img_link = "../orderitem_file.php?id=".$a_form_vars[id]."&mode=raster&mssid=".$mssid ;//"_orderpdfs/". "_preview_raster.jpg"_preview_pdf.pdf
 	$img = "<img src=\"$img_link\">"; 
 			
 	

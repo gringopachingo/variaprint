@@ -39,9 +39,9 @@
 		header("Content-Type: application/octet-stream");
 		header("Content-Disposition: attachment; filename=$time.pdf");
 		
-		session_name("ms-sid");
+		session_name("mssid");
 		session_start();
-		$ms_sid = session_id();
+		$mssid = session_id();
 
 		// This is a workaround to IE 5 for Mac so that the headers work.
 		// It doesn't seem to corrupt the PDF!?

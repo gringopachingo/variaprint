@@ -1,5 +1,5 @@
-<?
-<!--
+<?php
+
 // *******************************************************
 // 
 // VariaPrint 1.0 web-to-print system
@@ -31,10 +31,10 @@
 // http://www.variaprint.com/
 //
 // *******************************************************
--->
-	session_name("ms_sid");
+
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 	
 	
 	require_once("../../inc/config.php");

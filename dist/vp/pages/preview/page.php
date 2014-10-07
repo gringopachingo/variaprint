@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -52,7 +52,7 @@
 	$description = $a_site_settings['ApprovalText']; //$aSitePreview['PreviewText'];
 	$os_sidebar = iface_make_sidebar($title, $description);
 	if ($_SESSION["modifyitem"] != true) {
-//		$os_sidebar .= iface_make_cart_sidebar("Cart",$os_sid);
+//		$os_sidebar .= iface_make_cart_sidebar("Cart",$ossid);
 	}
 	
 	$atabs = array('0' => $itemname);
@@ -114,8 +114,8 @@
 							$approval_text
 							
 							<br><br>
-							<a href=\"$script_name?site=$_SESSION[site]&os_page=input&os_sid=$_SESSION[os_sid]\">
-							<input type=\"button\" onclick=\"document.location='$script_name?os_page=input&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\" class=\"button\" value=\"&laquo; Edit\"></a>&nbsp;&nbsp;
+							<a href=\"$script_name?site=$_SESSION[site]&os_page=input&ossid=$_SESSION[ossid]\">
+							<input type=\"button\" onclick=\"document.location='$script_name?os_page=input&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\" class=\"button\" value=\"&laquo; Edit\"></a>&nbsp;&nbsp;
 							
 							<input class=\"button\" type=\"submit\" value=\"Approve &raquo;\">
 							
@@ -132,7 +132,7 @@
 				<table cellpadding=8 cellspacing=0 border=0 width=\"590\">
 					<tr>
 						<td class=\"text\">
-						This item was deleted. <a href=\"vp.php?site=$_SESSION[site]&os_sid=$_SESSION[os_sid]&os_page=catalog\">Go to catalog</a>.
+						This item was deleted. <a href=\"vp.php?site=$_SESSION[site]&ossid=$_SESSION[ossid]&os_page=catalog\">Go to catalog</a>.
 						</td>
 					</tr>
 				</table>

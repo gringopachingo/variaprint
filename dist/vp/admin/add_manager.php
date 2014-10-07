@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -36,7 +36,7 @@
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
 	
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
 	
 	if(!isset($a_form_vars['step'])){

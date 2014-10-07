@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 if (!isset($_SESSION[site]) || trim($_SESSION[site]) == "") {
 	exit("There was an error determining which site is opened. <br><br>You may need to log out and log back in or reopen the current site by clicking on &quot;open order site&quot; at the top left of the VariaPrint&trade; Manager main screen.");

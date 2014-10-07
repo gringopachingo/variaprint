@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,7 +39,7 @@
 		
 		while ($a_orderitem = mysql_fetch_assoc($result)) {
 			$sql = "INSERT INTO Cart SET 
-				SessionID='$os_sid', 
+				SessionID='$ossid', 
 				SiteID='$_SESSION[site]', 
 				Qty='$a_orderitem[Qty]', 
 				Cost='$a_orderitem[Cost]',

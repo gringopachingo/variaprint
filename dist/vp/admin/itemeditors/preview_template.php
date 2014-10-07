@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 	
 	require_once("../../inc/config.php");
 	require_once("../../inc/functions-global.php");
@@ -159,7 +159,7 @@
 					<td colspan=\"3\" height=\"50\">$buttons </td>
 				</tr>
 			</table>
-			<input type=\"hidden\" name=\"ms_sid\" value=\"$ms_sid\">
+			<input type=\"hidden\" name=\"mssid\" value=\"$mssid\">
 			<input type=\"hidden\" name=\"item_id\" value=\"$item_id\">
 			<input type=\"hidden\" name=\"page\" value=\"render1\">";
 	

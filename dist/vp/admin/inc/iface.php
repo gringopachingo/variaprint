@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 function iface_menu($site="",$user_id="",$tm="",$sel_menu="",$disabled=0) {
-	global $ms_sid; 
+	global $mssid; 
 	
  	$a_managers[1]['name'] = "setup";
  	$a_managers[1]['action'] = "site_appearance";

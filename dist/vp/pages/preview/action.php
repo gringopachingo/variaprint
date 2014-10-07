@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 	if ($_SESSION['cartitemid'] == "") {
-		header("Location: vp.php?os_page=catalog&os_sid=$os_sid");
+		header("Location: vp.php?os_page=catalog&ossid=$ossid");
 	}	
 
 ?>

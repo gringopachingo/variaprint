@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,13 +39,13 @@ $a_result = mysql_fetch_assoc($r_result);
 $logoutinterval = 3600;
 
 //if within last 60 minutes, we're logged in
-if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $os_sid) {
+if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $ossid) {
 	$_SESSION['logged_in'] = 1;
 	$_SESSION['username'] = $a_result['Username'];
 	$time = time();
 	$sql = "UPDATE Users SET DateLastLogin='$time' WHERE ID='$_SESSION[user_id]' AND SiteID='$_SESSION[site]'";
 	dbq($sql);
-	$header_content .= "<meta http-equiv=\"refresh\" content=\"$logoutinterval;URL=vp.php?os_action=logout&logout_agent=inactivity&os_page_afterlogin=$_SESSION[os_page]&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]\">";
+	$header_content .= "<meta http-equiv=\"refresh\" content=\"$logoutinterval;URL=vp.php?os_action=logout&logout_agent=inactivity&os_page_afterlogin=$_SESSION[os_page]&ossid=$_SESSION[ossid]&site=$_SESSION[site]\">";
 } else {
 	$_SESSION['logged_in'] = 0;
 }

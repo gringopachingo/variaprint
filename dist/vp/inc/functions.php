@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -83,7 +83,7 @@ function invoice_item_row($it,$it2,$w="540") {
 
 function invoice($style="regular",$order_id="") {
 	// Flavors: regular, pre, & printable
-	global $a_site_settings, $os_sid, $currency;
+	global $a_site_settings, $ossid, $currency;
 	
 	$emailinvoice = false;
 	if (strtolower($style)=="email") {
@@ -116,7 +116,7 @@ function invoice($style="regular",$order_id="") {
 		$title = "Pre-invoice confirmation";
 		
 		// Get current orderinfo
-		$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$os_sid'";
+		$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$ossid'";
 		$r_result = dbq($sql);
 		$a_result = mysql_fetch_assoc($r_result);
 		
@@ -150,7 +150,7 @@ function invoice($style="regular",$order_id="") {
 
 	// Loop thru items
 	if ($style == "pre") {
-		$sql = "SELECT ID,ItemID,Qty,Cost FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";
+		$sql = "SELECT ID,ItemID,Qty,Cost FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";
 		$r_result = dbq($sql); 
 	} else {
 		$sql = "SELECT ID,ItemID,Qty,Cost FROM OrderItems WHERE OrderID='$order_id'";

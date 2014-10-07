@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -35,7 +35,7 @@
 /*
 	
 	if ($_SESSION['logged_in'] == 1) {
-		header("Location: vp.php?os_page=$_SESSION[os_page_afterlogin]&os_sid=$os_sid");
+		header("Location: vp.php?os_page=$_SESSION[os_page_afterlogin]&ossid=$ossid");
 		exit();
 	}
 */
@@ -62,11 +62,11 @@
 				</tr>
 			</table>	
 			
-			<div class=\"text\">Remembered your password? <a href=\"vp.php?site=$_SESSION[site]&os_page=login&os_sid=$_SESSION[os_sid]\">Login</a>.</div>
+			<div class=\"text\">Remembered your password? <a href=\"vp.php?site=$_SESSION[site]&os_page=login&ossid=$_SESSION[ossid]\">Login</a>.</div>
 			
 			<input type=\"hidden\" name=\"os_action\" value=\"resetpassword\">
 			<input type=\"hidden\" name=\"site\" value=\"$_SESSION[site]\">
-			<input type=\"hidden\" name=\"os_sid\" value=\"$_SESSION[os_sid]\">
+			<input type=\"hidden\" name=\"ossid\" value=\"$_SESSION[ossid]\">
 			</form>
 			
 			<br><br>

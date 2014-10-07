@@ -38,7 +38,7 @@ $_SESSION['tm'] = "1";
 if ( $a_form_vars[delete_item] != ""  && $a_form_vars[confirmed] == "1") {
 	$sql = "DELETE FROM Items WHERE ID='$a_form_vars[delete_item]'";
 	dbq($sql);
-	header("Location: vp.php?action=item_list&user_id=$user_id&ms_sid=$ms_sid");
+	header("Location: vp.php?action=item_list&user_id=$user_id&mssid=$mssid");
 }
 
 

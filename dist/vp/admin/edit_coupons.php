@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,9 +32,9 @@
 //
 // *******************************************************
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
@@ -151,7 +151,7 @@
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 <title>Discount Coupon Codes</title>
@@ -164,7 +164,7 @@ print($header_content);
   <p class="title"><strong>Discount Coupon Codes</strong></p>
   <table border="0" cellspacing="0" cellpadding="0">
 	
-	<? print($list); ?>
+	<?php print($list); ?>
 	
   </table>
   <br>

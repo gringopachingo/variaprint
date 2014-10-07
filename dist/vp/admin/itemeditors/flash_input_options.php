@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,7 +37,7 @@
 	require_once("../../inc/functions-global.php");
 	$a_form_vars = array_merge($_POST,$_GET);
 	
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
 	
 	

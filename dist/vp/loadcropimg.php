@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	require_once("inc/config.php");
 	require_once("inc/functions-global.php");

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -40,7 +40,7 @@
 	}
 
 	if (($_SESSION['logged_in'] == 0 && $_SESSION['show_login']) || ($_SESSION['logged_in'] == 0 && $_SESSION['billing_type'] == "po")) {
-		header("Location: vp.php?os_page_afterlogin=checkout&os_page=login&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]");
+		header("Location: vp.php?os_page_afterlogin=checkout&os_page=login&ossid=$_SESSION[ossid]&site=$_SESSION[site]");
 		exit();
 	}
 

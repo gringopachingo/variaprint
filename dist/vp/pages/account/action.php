@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 	if ($_SESSION['logged_in'] == 0) {
-		header("Location: vp.php?os_page_afterlogin=account&os_page=login&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]");
+		header("Location: vp.php?os_page_afterlogin=account&os_page=login&ossid=$_SESSION[ossid]&site=$_SESSION[site]");
 	}
 
 	

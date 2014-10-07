@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -38,7 +38,7 @@
 	$_SESSION['os_page'] = "confirmorder";
 	$order_approved = true;
 	
-	$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$os_sid'";	
+	$sql = "SELECT OrderInfo FROM Sessions WHERE SessionID='$ossid'";	
 	$r_result = dbq($sql);
 	$a_order_info_enc = mysql_fetch_assoc($r_result);
 	$xml_order_info = $a_order_info_enc['OrderInfo'];
@@ -155,7 +155,7 @@
 				$order_approved = true;
 			}
 					
-			//header("Location: vp.php?os_page=checkout&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]");//$_SESSION[page] = "checkout";
+			//header("Location: vp.php?os_page=checkout&ossid=$_SESSION[ossid]&site=$_SESSION[site]");//$_SESSION[page] = "checkout";
 			//exit();
 		}
 		
@@ -303,7 +303,7 @@ before it is ready for production.";
 		
 			
 			// Move cart items into OrderItems
-			$sql = "SELECT * FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";	
+			$sql = "SELECT * FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";	
 			$r_result = dbq($sql);
 			
 			
@@ -346,10 +346,10 @@ before it is ready for production.";
 			}
 	
 			// Delete items from cart for current session
-			$sql = "DELETE FROM Sessions WHERE SessionID='$os_sid'";	
+			$sql = "DELETE FROM Sessions WHERE SessionID='$ossid'";	
 			dbq($sql);
 			
-			$sql = "DELETE FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";	
+			$sql = "DELETE FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";	
 			dbq($sql);
 		}
 	

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -73,17 +73,17 @@ https://{$cfg_secure_url}{$cfg_secure_dir}{$cfg_sub_dir}aa.php?id=$this_approval
 	}
 	if ( $a_user['Password'] == encrypt($a_form_vars['login_password'],$a_form_vars['login_password'] ) && $error != 2) {
 		$time = time();
-		$sql = "UPDATE Users SET DateLastLogin='$time', LastSID='$os_sid' WHERE Username='$a_form_vars[login_username]' AND SiteID='$_SESSION[site]'";
+		$sql = "UPDATE Users SET DateLastLogin='$time', LastSID='$ossid' WHERE Username='$a_form_vars[login_username]' AND SiteID='$_SESSION[site]'";
 		dbq($sql);
 		$_SESSION['user_id'] = $a_user['ID'];
 		$_SESSION['logged_in'] = 1;
 		
 		if ( isset($_SESSION[os_page_afterlogin])) {
 			$_SESSION['os_page'] = $_SESSION[os_page_afterlogin];
-			header("Location: vp.php?site=$_SESSION[site]&os_sid=$_SESSION[os_sid]&os_page=$_SESSION[os_page_afterlogin]");
+			header("Location: vp.php?site=$_SESSION[site]&ossid=$_SESSION[ossid]&os_page=$_SESSION[os_page_afterlogin]");
 		} else {
 			$_SESSION['os_page'] = "catalog";
-			header("Location: vp.php?os_page=catalog&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+			header("Location: vp.php?os_page=catalog&site=$_SESSION[site]&ossid=$_SESSION[ossid]");
 		}
 	} elseif ($error!=2)  {
 		$error = 1;

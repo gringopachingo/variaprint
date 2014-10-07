@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -40,12 +40,12 @@ if ( isset($a_form_vars['deleteitemid']) ) {
 		
 		if ($a_form_vars['deleteitemid'] == $_SESSION['deleteitemid']) {
 			$_SESSION['cartitemid'] = "";
-			header("Location: vp.php?os_page=catalog&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+			header("Location: vp.php?os_page=catalog&site=$_SESSION[site]&ossid=$_SESSION[ossid]");
 		}
 	} else {
 		//	display alert msg on page
 		$_SESSION[show_alert] = 1;
-		$_SESSION[alert_msg] = "<a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&cartitemid=$a_form_vars[deleteitemid]&os_sid=$_SESSION[os_sid]&confirmed=1\">Click here</strong> to confirm that you want to delete this item from your cart.";
+		$_SESSION[alert_msg] = "<a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&cartitemid=$a_form_vars[deleteitemid]&ossid=$_SESSION[ossid]&confirmed=1\">Click here</strong> to confirm that you want to delete this item from your cart.";
 	}
 }
 ?>

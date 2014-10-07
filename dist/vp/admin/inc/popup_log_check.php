@@ -37,7 +37,7 @@ $sql = "SELECT * FROM Sites WHERE ID='$_SESSION[site]'";
 $r_result = dbq($sql);
 $a_result = mysql_fetch_assoc($r_result);
 
-$ms_sid = session_id();
+$mssid = session_id();
 $logged_in = 0;
 
 $_SESSION['privilege'] = "";
@@ -98,7 +98,7 @@ $a_result2 = mysql_fetch_assoc($r_result);
 $logoutinterval = 60 * 60;
 $logged_in = 0;
 
-if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $ms_sid && $allow){
+if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $mssid && $allow){
 
 /*
 	header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");    			// Date in the past
@@ -137,7 +137,7 @@ if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastS
 //	$_SESSION['alert_msg'] = "There was an error verifying that you are logged in.";
 	
 	print("Seconds until logout: " . $a_result['DateLastLogin'] - (time() - $logoutinterval) . "<br>" . 
-	"CurrentSID: " .  $ms_sid . "<br>" . 
+	"CurrentSID: " .  $mssid . "<br>" . 
 	"LastSID: " . $a_result['LastSID'] . "<br>" . 
 	"DateLastLogin: " . $a_result['DateLastLogin'] . "<br>" .
 	"UserID: " . $_SESSION[user_id] . "<br>" .

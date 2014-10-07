@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -41,9 +41,9 @@
 	require_once("inc/popup-header.php");
 	$background = $bgcolor;
 	
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	require_once("inc/config.php");	
 	require_once("inc/functions-global.php");	
@@ -69,7 +69,7 @@
 			$pd .= "<option value=\"".$node["attributes"]["ID"]."\" $sel>".htmlentities($node["attributes"]["NAME"])."</option>";
 		}
 	}
-	$pd = "<select style=\"width: 130\" name=\"library\" id=\"library\" onChange=\"top.document.location='imglib.php?obj=$a_form_vars[obj]&title=".urlencode($a_form_vars['title'])."&os_sid=$os_sid&site=$_SESSION[site]&library='+this.value\">$pd</select>";
+	$pd = "<select style=\"width: 130\" name=\"library\" id=\"library\" onChange=\"top.document.location='imglib.php?obj=$a_form_vars[obj]&title=".urlencode($a_form_vars['title'])."&ossid=$ossid&site=$_SESSION[site]&library='+this.value\">$pd</select>";
 
 	if (is_array($img_lib[0]["children"])) {
 		foreach($img_lib[0]["children"] as $key_libs=>$lib_node) {

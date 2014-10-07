@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -35,7 +35,7 @@
 	SecureServerOn(true);
 
 	if ($_SESSION['logged_in'] == 1 ) {
-		header("Location: vp.php?os_page=$_SESSION[os_page_afterlogin]&os_sid=$os_sid");
+		header("Location: vp.php?os_page=$_SESSION[os_page_afterlogin]&ossid=$ossid");
 		exit();
 	}
 
@@ -43,8 +43,8 @@
 //	if (($_SESSION["os_page_afterlogin"]=="checkout" && $a_site_settings["RequireAccount"] != "checked") || $a_site_settings["CatalogRequireLogin"] == "No") {
 		if ($_SESSION["os_page_afterlogin"]=="checkout" && $a_site_settings["CatalogRequireLogin"]=="No") {//!isset($a_site_settings["CatalogRequireLogin"]) || 
 			$skiptitle = "<span class=\"subtitle\">Skip Login</span>";
-			$skipbutton = "&nbsp;<br><a href=\"vp.php?site=$_SESSION[site]&os_action=skiplogin&os_sid=$_SESSION[os_sid]\">
-			<input type=\"button\" value=\"Skip Login &raquo;\" class=\"button\" onClick=\"document.location='vp.php?site=$_SESSION[site]&os_action=skiplogin&os_sid=$_SESSION[os_sid]'\"></a>";
+			$skipbutton = "&nbsp;<br><a href=\"vp.php?site=$_SESSION[site]&os_action=skiplogin&ossid=$_SESSION[ossid]\">
+			<input type=\"button\" value=\"Skip Login &raquo;\" class=\"button\" onClick=\"document.location='vp.php?site=$_SESSION[site]&os_action=skiplogin&ossid=$_SESSION[ossid]'\"></a>";
 			$skipbox = "
 				&nbsp; <strong>Advantages of having an account:</strong><br>
 					&bull; Check order status online<br>
@@ -82,7 +82,7 @@
 				<tr>
 					<td class=\"text\" nowrap> Username<br><input value=\"$prefill_username\" type=\"text\" name=\"login_username\" style=\"width:280\"><br>
 						Password<br> <input type=\"password\" name=\"login_password\" style=\"width:280\">
-						<div class=\"text\">Forgot your password? <a href=\"vp.php?site=$_SESSION[site]&os_page=resetpswd&os_sid=$_SESSION[os_sid]\">Reset it</a>.</div></td>
+						<div class=\"text\">Forgot your password? <a href=\"vp.php?site=$_SESSION[site]&os_page=resetpswd&ossid=$_SESSION[ossid]\">Reset it</a>.</div></td>
 					<td> <img src=\"images/spacer.gif\" width=\"10\" height=\"1\"> </td>
 					<td class=\"text\">$skipbox &nbsp; </td>
 				</tr>
@@ -131,7 +131,7 @@
 			<input type=\"hidden\" name=\"os_action\" value=\"create_account\">
 			
 			<input type=\"hidden\" name=\"site\" value=\"$_SESSION[site]\">
-			<input type=\"hidden\" name=\"os_sid\" value=\"$_SESSION[os_sid]\">
+			<input type=\"hidden\" name=\"ossid\" value=\"$_SESSION[ossid]\">
 			
 			</form>
 			<br><br>

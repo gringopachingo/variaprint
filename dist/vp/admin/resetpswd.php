@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -38,7 +38,7 @@ require_once("../inc/encrypt.php");
 require_once("../inc/functions-global.php");
 
 // session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("mssid");
 session_start();
 
 $enc_code = encrypt($a_form_vars[rc], $a_form_vars[rc]);
@@ -101,14 +101,14 @@ if ($a_form_vars[action] == "reset") {
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <form name="form1" method="post" action="resetpswd.php">
-  <? if ($show_alert == "1") { 
+  <?php if ($show_alert == "1") { 
   ?>
   <table height="53" border="0" align="center" cellpadding="10" cellspacing="10" bgcolor="#FFCC33">
     <tr> 
-      <td class="text"><? print($alert_msg); ?></td>
+      <td class="text"><?php print($alert_msg); ?></td>
     </tr>
   </table>
-  <?   } 
+  <?php   } 
 
   ?>
     <br>
@@ -130,10 +130,10 @@ if ($a_form_vars[action] == "reset") {
     <tr> 
       <td><img src="images/title-resetpswd.gif" width="320" height="132"></td>
       <td align="right" bgcolor="#A7CF40">
-	  <? if ($mode=="reset") { ?>	  <table border="0" cellspacing="0" cellpadding="0">
+	  <?php if ($mode=="reset") { ?>	  <table border="0" cellspacing="0" cellpadding="0">
           <tr>
             <td height="30" class="text"><strong><font color="#FFFFFF">Username</font></strong></td>
-            <td height="30" class="text"><font color="#FFFFFF"><? print($username); ?></font></td>
+            <td height="30" class="text"><font color="#FFFFFF"><?php print($username); ?></font></td>
             <td>&nbsp;</td>
             <td rowspan="5" align="right">&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td rowspan="5" align="right"><img src="images/blue-dot.gif" width="1" height="132"></td>
@@ -147,7 +147,7 @@ if ($a_form_vars[action] == "reset") {
             <td height="30" class="text"><strong><font color="#FFFFFF">Confirm&nbsp;password</font></strong></td>
             <td height="30"><input name="password2" type="password" id="username3" size="10" style="width:90">
               <input name="action" type="hidden" id="action7" value="reset">
-              <input name="rc" type="hidden" id="rc" value="<? print($a_form_vars[rc]); ?>">
+              <input name="rc" type="hidden" id="rc" value="<?php print($a_form_vars[rc]); ?>">
 </td>
             <td>&nbsp;</td>
           </tr>
@@ -161,7 +161,7 @@ if ($a_form_vars[action] == "reset") {
             <td height="1" colspan="3" valign="bottom"><img src="images/spacer.gif" width="270" height="1"></td>
           </tr>
         </table>
-	  <? } elseif ($mode=="success") { ?>
+	  <?php } elseif ($mode=="success") { ?>
 	  <table border="0" cellspacing="0" cellpadding="0">
         <tr>
           <td height="26" class="text"><p><strong><font color="#FFFFFF">Your
@@ -179,7 +179,7 @@ if ($a_form_vars[action] == "reset") {
       </table>
 	  
 	  
-	  <? } elseif ($mode=="error") { ?>
+	  <?php } elseif ($mode=="error") { ?>
 	  		
 	  <table border="0" cellspacing="0" cellpadding="0">
         <tr>
@@ -194,7 +194,7 @@ if ($a_form_vars[action] == "reset") {
           <td height="1" valign="bottom"><img src="images/spacer.gif" width="270" height="1"></td>
         </tr>
       </table>
-	  <? } ?>
+	  <?php } ?>
 	  </td>
     </tr>
     <tr> 

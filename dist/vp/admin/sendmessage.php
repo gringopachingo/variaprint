@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,7 +39,7 @@
 	require_once("inc/functions.php");
 	require_once("inc/iface.php");
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
 	
 	
@@ -294,10 +294,10 @@ Go to https://{$cfg_secure_url}{$cfg_secure_dir}{$cfg_sub_dir}admin/ and login w
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
-<title><? print($title); ?></title>
+<title><?php print($title); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
@@ -305,13 +305,13 @@ print($header_content);
 <body background="images/bkg-groove.gif">
 <form name="form1" method="get" action="sendmessage.php">
 <span class="text">
-<?
+<?php
 
 print($content);
 
 ?>
-<input type="hidden" name="o" value="<? print($a_form_vars[o]); ?>">
-<input name="site" type="hidden" id="site" value="<? print($site); ?>">
+<input type="hidden" name="o" value="<?php print($a_form_vars[o]); ?>">
+<input name="site" type="hidden" id="site" value="<?php print($site); ?>">
 </span>
 </form>
 </body>

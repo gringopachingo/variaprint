@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -89,12 +89,12 @@
 			$quickmenu = "<table width=\"98%\" border=\"0\" cellspacing=\"0\" cellpadding=\"10\">
 				  <tr><td width=\"150\">
 				  	<div class=\"subtitle\">Quick menu ...</div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\" class=\"text\">Place an order</a></div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\" class=\"text\">View catalog</a></div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&os_sid=$_SESSION[os_sid]\" class=\"text\">Check order status</a></div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&ordertab=1&os_sid=$_SESSION[os_sid]\" class=\"text\">Resume saved order</a></div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&os_sid=$_SESSION[os_sid]\" class=\"text\">View order history</a></div>
-					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=2&os_sid=$_SESSION[os_sid]\" class=\"text\">Edit account profile</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\" class=\"text\">Place an order</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\" class=\"text\">View catalog</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&ossid=$_SESSION[ossid]\" class=\"text\">Check order status</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&ordertab=1&ossid=$_SESSION[ossid]\" class=\"text\">Resume saved order</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=0&ossid=$_SESSION[ossid]\" class=\"text\">View order history</a></div>
+					<div class=\"text\">&bull; <a href=\"$script_name?site=$_SESSION[site]&os_page=account&accounttab=2&ossid=$_SESSION[ossid]\" class=\"text\">Edit account profile</a></div>
 				</td></tr></table>";
 			
 			$mainbox = iface_make_box($hpcontent,400,'');
@@ -106,13 +106,13 @@
 				$link = "_sites/" . $_SESSION[site] . "/images/" . $a_site_settings["HomeCatalogButton"];
 				if (file_exists($link)) {
 					$custombutton = true;
-					$button = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\"><img src=\"$link\" border=\"0\"></a>";
+					$button = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\"><img src=\"$link\" border=\"0\"></a>";
 				} 
 			} 
 			
 			if (!$custombutton) {
 				$link = "_sites/" . $_SESSION[site] . "/ifaceimg/view_catalog.gif";
-				$button = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\"><img src=\"$link\" border=\"0\"></a>";
+				$button = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\"><img src=\"$link\" border=\"0\"></a>";
 			}
 
 			$sPage = "<table width=\"768\" height=\"175\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
@@ -125,14 +125,14 @@
 
 		case "Link": 
 			if ($_SERVER['HTTP_REFERRER'] == $a_site_settings['hpURL'] || $a_form_vars['os_page'] != "home") {
-				header("Location: vp.php?os_page=catalog&os_sid=$os_sid");
+				header("Location: vp.php?os_page=catalog&ossid=$ossid");
 			} else {
 				header("Location: ". strip("\t\r\n", $a_site_settings['hpURL']) );
 			}
 			break;
 		
 		case "NoPage":
-			header("Location: vp.php?os_page=catalog&os_sid=$os_sid");
+			header("Location: vp.php?os_page=catalog&ossid=$ossid");
 			exit();
 	}
 

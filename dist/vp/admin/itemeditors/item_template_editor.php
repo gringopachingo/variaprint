@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,9 +32,9 @@
 //
 // *******************************************************
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 require_once("../../inc/config.php");
 require_once("../../inc/functions-global.php");
@@ -102,8 +102,8 @@ function popupWin(u,n,o) { // v3
 	return filewindow;
 }
 
-function previewTemplate (item_id,ms_sid) {
-	var url = 'preview_template.php?ms_sid=<? print($ms_sid); ?>&item_id='+item_id;
+function previewTemplate (item_id,mssid) {
+	var url = 'preview_template.php?mssid=<? print($mssid); ?>&item_id='+item_id;
 	template = popupWin(url,'preview','width=620,height=520,scrollbars=1,resizable=1,centered=1');
 	template.window.focus();
 }

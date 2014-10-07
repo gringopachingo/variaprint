@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -211,13 +211,13 @@
 	
 	$xml2 = addslashes(encrypt(xml_make_tree($a_order_tree2),""));
 	
-	$sql = "SELECT ID FROM Sessions WHERE SessionID='$os_sid'";	
+	$sql = "SELECT ID FROM Sessions WHERE SessionID='$ossid'";	
 	$r_result = dbq($sql);
 	if (mysql_num_rows($r_result) == 0) {
-		$sql = "INSERT INTO Sessions SET OrderInfo='$xml', SessionID='$os_sid'";	
+		$sql = "INSERT INTO Sessions SET OrderInfo='$xml', SessionID='$ossid'";	
 		dbq($sql);
 	} else {
-		$sql = "UPDATE Sessions SET OrderInfo='$xml' WHERE SessionID='$os_sid'";	
+		$sql = "UPDATE Sessions SET OrderInfo='$xml' WHERE SessionID='$ossid'";	
 		dbq($sql);
 	}
 	

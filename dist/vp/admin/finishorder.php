@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 	
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
@@ -173,11 +173,11 @@
 <body><table width="311" height="96%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="260"><form action="finishorder.php" method="post">
-      <? print($content); ?>
+      <?php print($content); ?>
       <input type="hidden" name="action" value="save">
-      <input type="hidden" name="type" value="<? print($a_form_vars[type]); ?>">
-      <input type="hidden" name="id" value="<? print($a_form_vars[id]); ?>">
-      <input type="hidden" name="amt" value="<? print($total); ?>">
+      <input type="hidden" name="type" value="<?php print($a_form_vars[type]); ?>">
+      <input type="hidden" name="id" value="<?php print($a_form_vars[id]); ?>">
+      <input type="hidden" name="amt" value="<?php print($total); ?>">
     </form></td>
   </tr>
 </table>

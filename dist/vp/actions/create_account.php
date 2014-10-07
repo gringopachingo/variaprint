@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -163,7 +163,7 @@ https://{$cfg_secure_url}{$cfg_secure_dir}{$cfg_sub_dir}aa.php?id=$this_approval
 		
 			// login  here
 			$time = time();
-			$sql = "UPDATE Users SET LastSID='$os_sid', DateLastLogin='$time' WHERE ID='$userID'";
+			$sql = "UPDATE Users SET LastSID='$ossid', DateLastLogin='$time' WHERE ID='$userID'";
 			$nUpdate = dbq($sql);
 		}
 	} else {

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -50,14 +50,14 @@ include("inc/iface.php");
 
 
 //session_save_path("/www/tmp");
-session_name("os_sid");
+session_name("ossid");
 session_start();
-$_SESSION[os_sid] = $os_sid = session_id();
+$_SESSION['ossid'] = $ossid = session_id();
 
 if (isset($a_form_vars['site']) && $a_form_vars['site'] != $_SESSION['site'] && $a_form_vars['r'] != "1") {
-	$_SESSION[site] = $a_form_vars['site'];
+	$_SESSION['site'] = $a_form_vars['site'];
 	session_destroy();
-	setcookie("os_sid","",time()-10000);
+	setcookie("ossid","",time()-10000);
 	setcookie("siteid",$a_form_vars['site'],time()+60*60*24);
 	if (!isset($a_form_vars['os_page'])) {
 		$page_frag = "&os_page=home";
@@ -91,11 +91,11 @@ require_once("inc/check-login.php");
 
 // If we're logged in, make sure the cart is saved
 if ($_SESSION['logged_in'] == 1) {
-	$sql = "SELECT ID,SavedID FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";
+	$sql = "SELECT ID,SavedID FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";
 	$r_result = dbq($sql); 
 	
 	if ( mysql_num_rows($r_result) > 0 ) {
-		$sql = "SELECT ID FROM SavedOrders WHERE SessionID='$os_sid' AND UserID='$_SESSION[user_id]'";
+		$sql = "SELECT ID FROM SavedOrders WHERE SessionID='$ossid' AND UserID='$_SESSION[user_id]'";
 		$r_result2 = dbq($sql);
 		
 		// Make sure that there's a saved DB entry
@@ -104,7 +104,7 @@ if ($_SESSION['logged_in'] == 1) {
 			$saved_id = $a_result2['ID'];
 		} else {
 			$time = time();
-			$sql = "INSERT INTO SavedOrders SET SessionID='$os_sid', UserID='$_SESSION[user_id]', DateSaved='$time', SiteID='$_SESSION[site]'";
+			$sql = "INSERT INTO SavedOrders SET SessionID='$ossid', UserID='$_SESSION[user_id]', DateSaved='$time', SiteID='$_SESSION[site]'";
 			dbq($sql);
 			$saved_id = db_get_last_insert_id();
 		} 
@@ -248,7 +248,7 @@ if ($_SESSION[os_page] != "input" && $_SESSION[os_page] != "input_options" && $_
 		$_SESSION['alert_msg'] = "Modifying the item has been canceled. No changes have been made.";
 		$_SESSION['show_alert'] = 1;
 		if (!headers_sent()) {
-			header("Location: vp.php?os_page=account&os_sid=$os_sid&site=$_SESSION[site]");
+			header("Location: vp.php?os_page=account&ossid=$ossid&site=$_SESSION[site]");
 			exit;
 		}
 	}
@@ -259,7 +259,7 @@ $mast_menu = MakeMasthead($logosrc, $bannerbgcolor) . MakeMenuBar($menubarcolor,
 
 if ($_SESSION[mode] == "test") { 
 	$testmodebutton = "<div style=\"position:absolute; width:85; height:20; top:0; left:625;\">
-	<a href=\"$script_name?mode=live&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]\"><img src=\"images/testmode.gif\" border=\"0\"></a></div>";
+	<a href=\"$script_name?mode=live&ossid=$_SESSION[ossid]&site=$_SESSION[site]\"><img src=\"images/testmode.gif\" border=\"0\"></a></div>";
 }
 
 
@@ -308,17 +308,17 @@ if ( isset($title) ) {
 -->
 <html>
 <head>
-<title><? print($title); ?></title>
+<title><?php print($title); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 
 
-<?
+<?php
  require_once("inc/style_sheet.php"); 
 ?>
 
 <script language="JavaScript" type="text/JavaScript">
 
-<?  print($js) ?>
+<?php  print($js) ?>
 
 function setFieldLabel(pldwnObj, fieldID) {
 	fObj = findObj('field_' + fieldID);
@@ -391,19 +391,19 @@ function popupWin(u,n,o) { // v3
 
 
 </script>
-<? print($header_content); ?> 
+<?php print($header_content); ?> 
 </head>
-<body bgcolor="<? print($bgcolor); ?>" <? print($bgimage);  ?> leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <? print($body_script); ?>>
+<body bgcolor="<?php print($bgcolor); ?>" <?php print($bgimage);  ?> leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" <?php print($body_script); ?>>
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" height="100%"><tr><td valign="top" height="99%">
 
-<?
+<?php
 if ( strtolower($form_method) != "get" && strtolower($form_method) != "post") { $form_method = "get"; }
 if ($showform != 0) print("<form action=\"$script_name\" method=\"$form_method\">");
 //<!-- START MASTHEAD / MENU BAR //-->
 print($testmodebutton);
 print($mast_menu);
-?><img src="images/spacer.gif" width="1" height="30"><?
+?><img src="images/spacer.gif" width="1" height="30"><?php
 //<!-- START MAIN PART OF PAGE //-->
 
 
@@ -439,9 +439,9 @@ print("</textarea>");
 $_SESSION[show_alert] = 0;
 $_SESSION[alert_msg] = "";
 ?>
-<? if ($showform != 0) { print("
+<?php if ($showform != 0) { print("
 <input type=\"hidden\" name=\"site\" value=\"$_SESSION[site]\">
-<input type=\"hidden\" name=\"os_sid\" value=\"$_SESSION[os_sid]\">
+<input type=\"hidden\" name=\"ossid\" value=\"$_SESSION[ossid]\">
 </form>
 "); }
 ?>

@@ -49,15 +49,13 @@ require_once("inc/functions.php");
 require_once("inc/iface.php");
 require_once("inc/session.php");
 
-
-session_name("ms-sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 //if ( isset($a_form_vars['site']) ) 
 //	$_SESSION['site'] = $a_form_vars['site'];
 
- 
 $a_legal_session_vars[] = "tab";
 $a_legal_session_vars[] = "settings_tab";
 $a_legal_session_vars[] = "appearance_tab";
@@ -89,13 +87,13 @@ foreach ( $a_legal_session_vars as $this_var) {
 
 $action = $_SESSION['action'];
 $sel_menu = $_SESSION['sel_menu'];
-$_SESSION[site] = $_SESSION['site'];
+$_SESSION['site'] = $_SESSION['site'];
 
 // Make sure a site is open, otherwise go to the site open page
-if ($_SESSION[site] == "" && $action != "login" && $action != "logout") {
-	$_SESSION['action'] = "site_open";
+if ($_SESSION['site'] == "" && $action != "login" && $action != "logout") {
+	$_SESSION['action'] = 'site_open';
+	$action = 'site_open';
 } 
-
 if ( $action != "" ) {
 	$actionfile =  "actions/". $action . ".php";
 	if ( file_exists($actionfile) ) {
@@ -105,8 +103,6 @@ if ( $action != "" ) {
 	}
 }
 
-
-
 // Check login status
 $sql = "SELECT DateLastLogin,LastSID,Username FROM AdminUsers WHERE ID='$_SESSION[user_id]'";
 $r_result = dbq($sql);
@@ -114,7 +110,7 @@ $a_result = mysql_fetch_assoc($r_result);
 
 //if within last 60 minutes, we're logged in
 $logoutinterval = 60 * 60 * 24;
-if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $ms_sid) {
+if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastSID'] == $mssid) {
 	$_SESSION['logged_in'] = 1;
 	$_SESSION['username'] = $a_result['Username'];
 	$time = time();
@@ -133,7 +129,7 @@ if ( $a_result['DateLastLogin'] > (time() - $logoutinterval) && $a_result['LastS
 	if ($a_result['DateLastLogin'] - (time() - $logoutinterval) < 0) {
 		$logged_out_reason .= "time+";
 	} 
-	if ($ms_sid != $a_result['LastSID']) {
+	if ($mssid != $a_result['LastSID']) {
 		$logged_out_reason .= "sid+";
 	}
 	header("Location: ../admin/?$logged_out_reason");
@@ -223,7 +219,7 @@ if ($a_result['MasterUID'] == $_SESSION['user_id'] || $_SESSION['username'] == "
 
 
 if ( $a_form_vars[r] != "1") 
-//	header ("Location: vp.php?r=1&ms_sid=$ms_sid");
+//	header ("Location: vp.php?r=1&mssid=$mssid");
 
 $menu = iface_menu($_SESSION[site],$_SESSION['user_id'],$_SESSION['tm'],$sel_menu);
 
@@ -497,7 +493,7 @@ if (!isset($form_method)) {
 		Name:  <strong>" . $_SESSION['site_name'] . "</strong > &nbsp; <a href=\"javascript:;\" onclick=\"popupWin('site_edit_name.php','renamesite','width=300,height=120,top=120,left=250')\">edit</a>...<br>
 		Status: <strong>$_SESSION[site_status]</strong> &nbsp;&nbsp; <a href=\"javascript:;\" onclick=\"popupWin('site_edit_status.php','renamestatus','width=300,height=120,top=100,left=230')\">edit</a>...
 		");*/
-	?>        &raquo; <a href="vp.php?action=home&ms_sid=<?php 	print($ms_sid); ?>"> 
+	?>        &raquo; <a href="vp.php?action=home&mssid=<?php 	print($mssid); ?>"> 
         welcome page</a> 
         <p> 
           <?php } ?>

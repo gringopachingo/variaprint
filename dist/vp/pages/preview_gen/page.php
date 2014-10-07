@@ -42,7 +42,7 @@
 </table>
 </body>
 </html>
-<?
+<?php
 	SecureServerOn(false);
 
 	require_once($cfg_base_dir."inc/functions_pdf.php");
@@ -110,7 +110,7 @@
 ?>
 
 <script language="JavaScript" type="text/JavaScript">
-document.location='vp.php?os_page=preview&site=<? print($_SESSION[site]); ?>&os_sid=<? print($_SESSION[os_sid]); ?>'
+document.location='vp.php?os_page=preview&site=<?php print($_SESSION['site']); ?>&ossid=<?php print($_SESSION['ossid']); ?>'
 </script>
 
-<? exit(); ?>
+<?php exit(); ?>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -152,12 +152,12 @@ function iface_make_input_row($label, $field, $help, $alert=false) {
 
 // COMMAS DON'T WORK in JS AND  URLENCODING screws everything up.
 
-function iface_make_cart_row($name, $qtycost, $cartid, $itemid, $os_sid,$approved=true) {
+function iface_make_cart_row($name, $qtycost, $cartid, $itemid, $ossid,$approved=true) {
 	$sql = "SELECT Custom FROM Items WHERE ID='$itemid'";
 	$r = dbq($sql);
 	$a = mysql_fetch_assoc($r);
 	if (!$approved) {
-		$approval = " &nbsp; <a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&itemid=$itemid&cartitemid=$cartid&os_sid=$_SESSION[os_sid]\" class=\"text\">approve</a> &raquo;";
+		$approval = " &nbsp; <a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&itemid=$itemid&cartitemid=$cartid&ossid=$_SESSION[ossid]\" class=\"text\">approve</a> &raquo;";
 		//onClick=\"popupWin('approve_item.php?cart_id=$cartid','','height=300,width=400,centered=1')\" 
 	} 		
 	$row = "
@@ -166,7 +166,7 @@ function iface_make_cart_row($name, $qtycost, $cartid, $itemid, $os_sid,$approve
 		
 	if ($a["Custom"]!="N") {
 		$row .=	"<a href=\"javascript:;\" onClick=\"popupWin('itempreview.php?site=$_SESSION[site]&cartitemid=$cartid&itemid=$itemid&name=" 
-				. urlencode(addslashes($name)) . "&os_sid=$_SESSION[os_sid]','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">
+				. urlencode(addslashes($name)) . "&ossid=$_SESSION[ossid]','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">
 				<img src=\"_sites/$_SESSION[site]/ifaceimg/icon-preview.gif\" border=\"0\"></a>
 		";
 	} else {
@@ -174,11 +174,11 @@ function iface_make_cart_row($name, $qtycost, $cartid, $itemid, $os_sid,$approve
 	}
 	
 	$row .= "</td>
-			<td width=\"1\"><a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&deleteitemid=$cartid&os_sid=$_SESSION[os_sid]\"" . 
+			<td width=\"1\"><a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&deleteitemid=$cartid&ossid=$_SESSION[ossid]\"" . 
 				" onclick=\"return confirmAction(this, 'This will delete all the information you entered for this item.')\">" .
 				" <img src=\"_sites/$_SESSION[site]/ifaceimg/icon-delete.gif\" border=\"0\" title=\"Remove item &quot;$name&quot; from cart.\"></a></td>
 			<td width=\"360\" class=\"text\">$name &nbsp; &nbsp; 
-			<a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&itemid=$itemid&cartitemid=$cartid&os_sid=$_SESSION[os_sid]\" class=\"text\">edit</a> &raquo; $approval</td>
+			<a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&itemid=$itemid&cartitemid=$cartid&ossid=$_SESSION[ossid]\" class=\"text\">edit</a> &raquo; $approval</td>
 			<td align=\"left\">$qtycost</td>
 		</tr>
 		</table>";
@@ -201,15 +201,15 @@ function MakePageStructure($os_sidebar, $content, $top="") {
 	return $page;
 }
 
-function iface_make_cart_sidebar($title,$os_sid) {
-	$sql = "SELECT ID,ItemID FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";
+function iface_make_cart_sidebar($title,$ossid) {
+	$sql = "SELECT ID,ItemID FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";
 	$nResult = dbq($sql); 
 	
 	
 	
 	if ( mysql_num_rows($nResult) > 0) {
 		if ($_SESSION[logged_in] != 1) { 
-			$save = "&nbsp;<a href=\"vp.php?site=$_SESSION[site]&os_sid=$_SESSION[os_sid]&os_page=login\">save</a> &raquo; "; }
+			$save = "&nbsp;<a href=\"vp.php?site=$_SESSION[site]&ossid=$_SESSION[ossid]&os_page=login\">save</a> &raquo; "; }
 		
 		$text .= "
 		<!-- START CART SIDEBAR //-->
@@ -221,9 +221,9 @@ function iface_make_cart_sidebar($title,$os_sid) {
 			$aItemName = mysql_fetch_assoc($nResult2);
 			//<td valign=\"top\" class=\"text\">&bull;&nbsp;</td>
 			$text .= "<tr><td valign=\"top\" class=\"text\">" . $aItemName['Name'] . 
-			"<br><a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&deleteitemid=$aItem[ID]&os_sid=$_SESSION[os_sid]\" onclick=\"return confirmAction(this, 'This will delete all the information you entered.')\">delete&nbsp;&raquo;</a>&nbsp;&nbsp;";
+			"<br><a href=\"vp.php?site=$_SESSION[site]&os_action=deletefromcart&deleteitemid=$aItem[ID]&ossid=$_SESSION[ossid]\" onclick=\"return confirmAction(this, 'This will delete all the information you entered.')\">delete&nbsp;&raquo;</a>&nbsp;&nbsp;";
 			if ($aItemName["Custom"] != "N") {
-				$text .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&cartitemid=$aItem[ID]&itemid=$aItem[ItemID]&os_sid=$_SESSION[os_sid]\">edit&nbsp;&raquo;</a>";
+				$text .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=edititem&cartitemid=$aItem[ID]&itemid=$aItem[ItemID]&ossid=$_SESSION[ossid]\">edit&nbsp;&raquo;</a>";
 			}	
 			$text .= "<br>
 			<img src=\"images/spacer.gif\" height=\"10\" width=\"1\"></td></tr>";
@@ -238,12 +238,12 @@ function iface_make_cart_sidebar($title,$os_sid) {
 			iface_make_box("<table cellpadding=0 cellspacing=8 border=0 width=\"100%\"><tr><td class=\"text\">
 				<span class=\"subtitle\">$title</span>
 				$save&nbsp;
-				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&os_sid=$_SESSION[os_sid]\">view</a> &raquo;
+				<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&ossid=$_SESSION[ossid]\">view</a> &raquo;
 				</td></tr></table>". iface_dottedline() ."
 				<table cellpadding=0 cellspacing=8 border=0><tr><td class=\"text\">
-					<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&os_sid=$_SESSION[os_sid]\">
+					<a href=\"vp.php?site=$_SESSION[site]&os_action=gotocart&ossid=$_SESSION[ossid]\">
 					<input type=\"button\" onclick=\"document.location = ".
-						"'vp.php?os_action=gotocart&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\" class=\"button\" ".
+						"'vp.php?os_action=gotocart&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\" class=\"button\" ".
 						"value=\"Checkout &raquo;\"></a>
 <br><br>
 <div class=\"text\">$text </div>				</td></tr></table>
@@ -278,7 +278,7 @@ function iface_dottedline($width = "100%") {
 }
 
 function MakeMenuBar($menubarcolor, $bevel="N",$MenuHomeName="", $MenuCatalogName="", $MenuAccountName="", $MenuOrderStatusName="", $cm_text1="", $cm_link1="", $cm_text2="", $cm_link2="") {
-	global $os_sid, $a_site_settings;
+	global $ossid, $a_site_settings;
 	
 	if (trim($MenuHomeName) == "") $MenuHomeName = "Home";
 	if (trim($MenuCatalogName) == "") $MenuCatalogName = "Catalog";
@@ -289,9 +289,9 @@ function MakeMenuBar($menubarcolor, $bevel="N",$MenuHomeName="", $MenuCatalogNam
 	
 	if ( $_SESSION[os_page] != "login") {
 		if ($_SESSION['logged_in'] == 1) {
-			$login_text = "<a href=\"vp.php?site=$_SESSION[site]&os_action=logout&os_page_afterlogin=$_SESSION[os_page]&os_sid=$_SESSION[os_sid]\" class=\"menu\">Logout &quot;$_SESSION[username]&quot;</a>";
+			$login_text = "<a href=\"vp.php?site=$_SESSION[site]&os_action=logout&os_page_afterlogin=$_SESSION[os_page]&ossid=$_SESSION[ossid]\" class=\"menu\">Logout &quot;$_SESSION[username]&quot;</a>";
 		} else {
-			$login_text = "<a href=\"vp.php?site=$_SESSION[site]&os_page=login&os_page_afterlogin=$_SESSION[os_page]&os_sid=$_SESSION[os_sid]\" class=\"menu\">Login</a>";
+			$login_text = "<a href=\"vp.php?site=$_SESSION[site]&os_page=login&os_page_afterlogin=$_SESSION[os_page]&ossid=$_SESSION[ossid]\" class=\"menu\">Login</a>";
 		}
 	}
 	
@@ -311,7 +311,7 @@ function MakeMenuBar($menubarcolor, $bevel="N",$MenuHomeName="", $MenuCatalogNam
 	}
 	
 	if ($a_site_settings['HomePageStyle'] != "NoPage") {
-		$homelink = "<a href=\"vp.php?site=$_SESSION[site]&os_page=home&os_sid=$_SESSION[os_sid]\" class=\"menu\">".str_replace(" ","&nbsp;",$MenuHomeName)."<a>";
+		$homelink = "<a href=\"vp.php?site=$_SESSION[site]&os_page=home&ossid=$_SESSION[ossid]\" class=\"menu\">".str_replace(" ","&nbsp;",$MenuHomeName)."<a>";
 	}
 	$menubar = "
 	<table width=\"100%\" height=\"22\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">
@@ -325,11 +325,11 @@ function MakeMenuBar($menubarcolor, $bevel="N",$MenuHomeName="", $MenuCatalogNam
 			  <td width=\"16\"><img src=\"images/spacer.gif\" width=\"16\" height=\"1\"></td>
 			  <td width=\"150\" class=\"menu\">$homelink&nbsp;</td>
 			  <td width=\"459\" valign=\"middle\"> 
-				  <a href=\"vp.php?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\" class=\"menu\">"
+				  <a href=\"vp.php?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\" class=\"menu\">"
 				  .str_replace(" ","&nbsp;",$MenuCatalogName).
 				  "</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . 
-				  "<a class=\"menu\" href=\"vp.php?site=$_SESSION[site]&os_page=account&os_sid=$_SESSION[os_sid]\">".str_replace(" ","&nbsp;",$MenuAccountName)."</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . 
-				  "<a href=\"vp.php?site=$_SESSION[site]&os_page=account&accounttab=0&os_sid=$_SESSION[os_sid]\" class=\"menu\">".str_replace(" ","&nbsp;",$MenuOrderStatusName)."</a>". $cm1 . $cm2 .
+				  "<a class=\"menu\" href=\"vp.php?site=$_SESSION[site]&os_page=account&ossid=$_SESSION[ossid]\">".str_replace(" ","&nbsp;",$MenuAccountName)."</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" . 
+				  "<a href=\"vp.php?site=$_SESSION[site]&os_page=account&accounttab=0&ossid=$_SESSION[ossid]\" class=\"menu\">".str_replace(" ","&nbsp;",$MenuOrderStatusName)."</a>". $cm1 . $cm2 .
 				 
 				  
 			  "</td>
@@ -412,7 +412,7 @@ function iface_make_box($content="",$width=600,$height="",$top=1,$bordercolor="#
 */
 
 function iface_make_tabs($atabs, $ontab, $varname="tab", $width=600, $page="") {
-	global $os_sid;
+	global $ossid;
 	$tabs = "
 	<!-- START TABS //-->
     <table width=\"$width\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" height=\"5\"><tr>";
@@ -426,7 +426,7 @@ function iface_make_tabs($atabs, $ontab, $varname="tab", $width=600, $page="") {
 				if ($page != "") {
 					$page_link = "os_page=$page&";
 				}
-				$tabio = "off";  $label = "<a href=\"vp.php?".$page_link."site=$_SESSION[site]&$varname=$k&os_sid=$_SESSION[os_sid]\" class=\"taboff\">" 
+				$tabio = "off";  $label = "<a href=\"vp.php?".$page_link."site=$_SESSION[site]&$varname=$k&ossid=$_SESSION[ossid]\" class=\"taboff\">" 
 				. ereg_replace(" ", "&nbsp;", $v) . "</a>";
 			}
 			

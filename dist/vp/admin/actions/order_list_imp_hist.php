@@ -82,9 +82,9 @@ function date_diff($date1, $date2) {
 				alert('You must select at least one docket.')
 			} else {
 				if (action == \"completed\" || action == \"production\") {
-					popupWin('docket_change_status.php?ms_sid=$ms_sid&status='+action+'&'+hash,'changedocketstatus','width=400,height=150,scrollbars=yes,resizable=yes,centered=1')
+					popupWin('docket_change_status.php?mssid=$mssid&status='+action+'&'+hash,'changedocketstatus','width=400,height=150,scrollbars=yes,resizable=yes,centered=1')
 				} else {
-					document.location='vp.php?ms_sid=$ms_sid&action=order_search_dockets&'+hash ;
+					document.location='vp.php?mssid=$mssid&action=order_search_dockets&'+hash ;
 				}	
 			}
 		
@@ -95,7 +95,7 @@ function date_diff($date1, $date2) {
 
 
 	$submenu = "
-	<a href=\"vp.php?action=order_list_impose&ms_sid=$ms_sid\">Create Impositions</a> 
+	<a href=\"vp.php?action=order_list_impose&mssid=$mssid\">Create Impositions</a> 
 	&nbsp; &nbsp; Download Dockets / Impositions
 	&nbsp; &nbsp; <a href=\"javascript:;\" onClick=\"popupWin('itempreseteditors/item_presets_editor.php?edit=imposition','style','width=550,height=465,centered=1')\">Imposition Styles</a>...
 	";
@@ -132,7 +132,7 @@ function date_diff($date1, $date2) {
 		}
 		
 		$supplierMenu = "
-			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&ms_sid=$ms_sid''\">
+			<select name=\"sel_imp_vendor\" style=\"width: 130\" onChange=\"document.location='vp.php?sel_imposition=$_SESSION[sel_imposition]&sel_imp_vendor=' + this.value + '&mssid=$mssid''\">
 			$supplierMenu</select>
 		";
 		if (!isset($_SESSION['sel_imp_vendor']) || $_SESSION['sel_imp_vendor'] == "all") {
@@ -184,7 +184,7 @@ function date_diff($date1, $date2) {
 			<tr>
 				<td width=\"180\">
 					<span class=\"text\">Show dockets with status: </span><br>
-<select name=\"sel_docket_view\" class=\"text\" onchange=\"document.location='vp.php?sel_docket_view='+this.value+'&ms_sid=$ms_sid'\" style=\"width: 120\">
+<select name=\"sel_docket_view\" class=\"text\" onchange=\"document.location='vp.php?sel_docket_view='+this.value+'&mssid=$mssid'\" style=\"width: 120\">
 <option value=\"production\" $productionsel>In Production</option>
 <option value=\"completed\" $completesel>Completed</option>
 </select>

@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-	session_name("ms-sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
@@ -47,7 +47,7 @@
 	
 	require_once("inc/popup_log_check.php");
 	
-	SecureServerOn(true, "?ms_sid=$ms_sid");
+	SecureServerOn(true, "?mssid=$mssid");
 	
 	if (isset($a_form_vars['save']) || isset($a_form_vars['test'])) {
 	//	print("saving...");

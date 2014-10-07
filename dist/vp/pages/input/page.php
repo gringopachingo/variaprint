@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -107,7 +107,7 @@
 				<table cellpadding=8 cellspacing=0 border=0 width=\"590\">
 					<tr>
 						<td class=\"text\">
-						This item was deleted. <a href=\"vp.php?site=$_SESSION[site]&os_sid=$_SESSION[os_sid]&os_page=catalog\">Go to catalog</a>.
+						This item was deleted. <a href=\"vp.php?site=$_SESSION[site]&ossid=$_SESSION[ossid]&os_page=catalog\">Go to catalog</a>.
 						</td>
 					</tr>
 				</table>
@@ -182,15 +182,15 @@
 		
 		// Make buttons at the bottom
 		if ($_SESSION['input_options'] != "0") {
-			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=input_options&os_sid=$_SESSION[os_sid]\">
+			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=input_options&ossid=$_SESSION[ossid]\">
 			<input class=\"button\"  type=\"button\" value=\"&laquo; Change options\" ".
-				"onClick=\"document.location = '$script_name?os_page=input_options&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]')\"></a>&nbsp;&nbsp;";
+				"onClick=\"document.location = '$script_name?os_page=input_options&site=$_SESSION[site]&ossid=$_SESSION[ossid]')\"></a>&nbsp;&nbsp;";
 		} elseif ($_SESSION["modifyitem"]) {
-			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=account&os_sid=$_SESSION[os_sid]\">
-			<input class=\"button\" type=\"button\" value=\"&laquo; Cancel\" onClick=\"document.location='$script_name?os_page=account&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"></a>&nbsp;&nbsp;";
+			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=account&ossid=$_SESSION[ossid]\">
+			<input class=\"button\" type=\"button\" value=\"&laquo; Cancel\" onClick=\"document.location='$script_name?os_page=account&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"></a>&nbsp;&nbsp;";
 		} else {
-			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\">
-			<input class=\"button\" type=\"button\" value=\"&laquo; Cancel\" onClick=\"document.location='$script_name?os_page=catalog&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"></a>&nbsp;&nbsp;";
+			$buttons = "<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\">
+			<input class=\"button\" type=\"button\" value=\"&laquo; Cancel\" onClick=\"document.location='$script_name?os_page=catalog&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"></a>&nbsp;&nbsp;";
 		}
 		
 		$buttons .= "
@@ -208,7 +208,7 @@
 					</td>
 				</tr>
 			</table>
-			<input type=\"hidden\" name=\"sid\" value=\"$os_sid\">
+			<input type=\"hidden\" name=\"sid\" value=\"$ossid\">
 			<input type=\"hidden\" name=\"page\" value=\"preview\">";
 				
 		if ( $_SESSION['os_action'] == "additem") {
@@ -257,7 +257,7 @@
 	$content 	= iface_make_box($content,600,100,0);
 	$os_sidebar 	= iface_make_sidebar($title, "Enter your information on the right and click &quot;save&quot; to add this item to your cart");
 	if ($_SESSION["modifyitem"] != true) {
-		$os_sidebar .= iface_make_cart_sidebar("Cart",$os_sid);
+		$os_sidebar .= iface_make_cart_sidebar("Cart",$ossid);
 	}
 	$sPage 		= MakePageStructure($os_sidebar,$content,$tabs);
 

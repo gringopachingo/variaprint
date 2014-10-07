@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 
 require_once("../inc/config.php");
@@ -86,7 +86,7 @@ $color_table = "<table cellspacing=1 cellpadding=0 border=0 width=\"540\">$color
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<?
+<?php
 print($header_content);
 ?>
 
@@ -94,8 +94,8 @@ print($header_content);
 <script language="JavaScript" type="text/JavaScript">
 
 function sel(c) {
-	window.opener.document.forms[0].<? print($_GET['obj']); ?>.value = c
-	window.opener.update_color('<? print($_GET['obj']); ?>')
+	window.opener.document.forms[0].<?php print($_GET['obj']); ?>.value = c
+	window.opener.update_color('<?php print($_GET['obj']); ?>')
 	window.close()
 }
 </script>
@@ -103,7 +103,7 @@ function sel(c) {
 </head>
 
 <body background="images/bkg-groove.gif">
-<?
+<?php
 print($color_table);
 ?>
 <table width="540" border=0 cellpadding=0 cellspacing=1 bgcolor="#CCCCCC">

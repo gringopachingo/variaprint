@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -64,7 +64,7 @@
 								Order in progress 
 							</td>
 							<td class=\"text\" align=\"right\">
-								<a href=\"vp.php?site=$_SESSION[site]&os_action=continuesavedorder&savedorderid=$a_saved[ID]&os_sid=$_SESSION[os_sid]\">continue order</a> &raquo;
+								<a href=\"vp.php?site=$_SESSION[site]&os_action=continuesavedorder&savedorderid=$a_saved[ID]&ossid=$_SESSION[ossid]\">continue order</a> &raquo;
 							</td>
 						</tr>
 					";
@@ -81,7 +81,7 @@
 						
 						if ($a_name["Custom"] != "N") { 
 							$row .= "<a href=\"javascript:;\" onClick=\"popupWin('itempreview.php?site=$_SESSION[site]&cartitemid=$a_cart[ID]&name=" 
-								. urlencode(addslashes($this_name)) . "&os_sid=$_SESSION[os_sid]','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>...";
+								. urlencode(addslashes($this_name)) . "&ossid=$_SESSION[ossid]','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>...";
 						}
 						
 						$row .= "
@@ -152,21 +152,21 @@
 					if ($a_item['Status'] == 30) { 
 						$modify_link = "<a href=\"javascript:;\" onclick=\"alert('This item is already in production and cannot be modified.');\">modify</a> &raquo; &nbsp;";
 					} elseif ($a_item['Status'] == 29) {
-						$modify_link = "<a href=\"vp.php?site=$_SESSION[site]&os_action=modifyorderitem&moditemid=$a_item[ID]&os_sid=$_SESSION[os_sid]&in_prod=1\" onclick=\"return confirmAction(this,'This item has already been downloaded for production. You should contact us and make sure that it hasn\'t been completed. Do you still want to modify this item? ')\">modify</a> &raquo; &nbsp;";
+						$modify_link = "<a href=\"vp.php?site=$_SESSION[site]&os_action=modifyorderitem&moditemid=$a_item[ID]&ossid=$_SESSION[ossid]&in_prod=1\" onclick=\"return confirmAction(this,'This item has already been downloaded for production. You should contact us and make sure that it hasn\'t been completed. Do you still want to modify this item? ')\">modify</a> &raquo; &nbsp;";
 					} else {
-						$modify_link = "<a href=\"vp.php?site=$_SESSION[site]&os_action=modifyorderitem&moditemid=$a_item[ID]&os_sid=$_SESSION[os_sid]&in_prod=0\">modify</a> &raquo; &nbsp;";
+						$modify_link = "<a href=\"vp.php?site=$_SESSION[site]&os_action=modifyorderitem&moditemid=$a_item[ID]&ossid=$_SESSION[ossid]&in_prod=0\">modify</a> &raquo; &nbsp;";
 					}
 					$row .= "<a href=\"javascript:;\" onClick=\"popupWin('itempreview.php?site=$_SESSION[site]&cartitemid=$a_item[ID]&name=" 
-						. urlencode(addslashes($this_name)) . "&os_sid=$_SESSION[os_sid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>... &nbsp; 
+						. urlencode(addslashes($this_name)) . "&ossid=$_SESSION[ossid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>... &nbsp; 
 							$modify_link
 						 ";
 				}
 				
 				if ($a_item["Status"] != 30) {
 					if ($a_item["Status"] == 10) {
-						$row .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=restoreorderitem&removeitemid=$a_item[ID]&os_sid=$_SESSION[os_sid]\">restore</a> &raquo;";
+						$row .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=restoreorderitem&removeitemid=$a_item[ID]&ossid=$_SESSION[ossid]\">restore</a> &raquo;";
 					} else {
-						$row .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=removeorderitem&removeitemid=$a_item[ID]&os_sid=$_SESSION[os_sid]\">remove</a> &raquo;";
+						$row .= "<a href=\"vp.php?site=$_SESSION[site]&os_action=removeorderitem&removeitemid=$a_item[ID]&ossid=$_SESSION[ossid]\">remove</a> &raquo;";
 					}
 				} else {
 					$has_production_item = true;
@@ -187,10 +187,10 @@
 				<td class=\"text\" align=\"right\">";
 				
 			if ($a_order["Status"] > 15 && !$has_production_item) {  	
-				$row_header .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=cancelorder&cancelorderid=$a_order[ID]&os_sid=$_SESSION[os_sid]\">cancel</a> &raquo;&nbsp; ";
+				$row_header .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=cancelorder&cancelorderid=$a_order[ID]&ossid=$_SESSION[ossid]\">cancel</a> &raquo;&nbsp; ";
 			}
 			
-			$row_header .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&os_sid=$_SESSION[os_sid]\">reorder</a> &raquo;
+			$row_header .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&ossid=$_SESSION[ossid]\">reorder</a> &raquo;
 				</td>
 				</tr>
 			";
@@ -243,7 +243,7 @@
 				</td>
 				<td class=\"text\" align=\"right\">";
 					
-			$row .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&os_sid=$_SESSION[os_sid]\">reorder</a> &raquo;
+			$row .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&ossid=$_SESSION[ossid]\">reorder</a> &raquo;
 				</td>
 				</tr>
 			";
@@ -263,7 +263,7 @@
 						
 				if ($a_item_props["Custom"] != "N") { 
 					$row .= "<a href=\"javascript:;\" onClick=\"popupWin('itempreview.php?site=$_SESSION[site]&cartitemid=$a_item[ID]&name=" 
-						. urlencode(addslashes($this_name)) . "&os_sid=$_SESSION[os_sid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>... &nbsp; ";
+						. urlencode(addslashes($this_name)) . "&ossid=$_SESSION[ossid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item &quot;$name&quot;.\">preview</a>... &nbsp; ";
 				}
 				
 				$row .= "
@@ -318,7 +318,7 @@
 				</td>
 				<td class=\"text\" align=\"right\">";
 					
-			$row .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&os_sid=$_SESSION[os_sid]\">reorder</a> &raquo;
+			$row .="		<a href=\"vp.php?site=$_SESSION[site]&os_action=reorder&reorderid=$a_order[ID]&ossid=$_SESSION[ossid]\">reorder</a> &raquo;
 				</td>
 				</tr>
 			";
@@ -338,7 +338,7 @@
 						
 				if ($a_item_props["Custom"] != "N") { 
 					$row .= "<a href=\"javascript:;\" onClick=\"popupWin('itempreview.php?site=$_SESSION[site]&cartitemid=$a_item[ID]&name=" 
-						. urlencode(addslashes($this_name)) . "&os_sid=$_SESSION[os_sid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item.\">preview</a>... &nbsp; ";
+						. urlencode(addslashes($this_name)) . "&ossid=$_SESSION[ossid]&mode=ordered','view','width=600,height=450,centered=1')\" title=\"View preview of item.\">preview</a>... &nbsp; ";
 				}
 				
 				$row .= "
@@ -395,7 +395,7 @@
 			$fp = true;
 			foreach ($a_order_types as $k=>$type) {
 				if (!$fp) { $menu .= " | " ; }
-				if ($k == $ontab2) { $menu .= "$type" ; } else { $menu .= "<a href=\"vp.php?site=$_SESSION[site]&os_page=account&orderpage=1&ordertab=$k&os_sid=$_SESSION[os_sid]\">$type</a>" ; }
+				if ($k == $ontab2) { $menu .= "$type" ; } else { $menu .= "<a href=\"vp.php?site=$_SESSION[site]&os_page=account&orderpage=1&ordertab=$k&ossid=$_SESSION[ossid]\">$type</a>" ; }
 				$fp = false;
 			}
 			

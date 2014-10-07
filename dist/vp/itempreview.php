@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -40,9 +40,9 @@
 	header("Pragma: no-cache");                          			// HTTP/1.0
 
 	include("inc/popup-header.php");
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	require_once("inc/config.php");	
 	require_once("inc/functions-global.php");	
@@ -76,7 +76,7 @@
 
 	if ($a_item["PDFProof"] == "true") {
 		$pdf_proof	="
-			<a href=\"orderitem_file.php?type=".$a_form_vars['mode']."&id=".$a_form_vars[cartitemid]."&mode=proofpdf&os_sid=".$os_sid."\" target=\"_blank\">View PDF proof</a>...
+			<a href=\"orderitem_file.php?type=".$a_form_vars['mode']."&id=".$a_form_vars[cartitemid]."&mode=proofpdf&ossid=".$ossid."\" target=\"_blank\">View PDF proof</a>...
 			<br><br>
 			<a href=\"http://www.adobe.com/products/acrobat/readstep2.html\" target=\"_blank\">Download Adobe Acrobat Reader for PDF</a>...
 		";
@@ -86,10 +86,10 @@
 
 	$time = time();
 	if ($a_form_vars['mode'] == "ordered") {
-		$img_link = "orderitem_file.php?type=ordered&id=".$a_form_vars[cartitemid]."&mode=raster&os_sid=".$os_sid ;//"_orderpdfs/". "_preview_raster.jpg"_preview_pdf.pdf
+		$img_link = "orderitem_file.php?type=ordered&id=".$a_form_vars[cartitemid]."&mode=raster&ossid=".$ossid ;//"_orderpdfs/". "_preview_raster.jpg"_preview_pdf.pdf
 		$img = "<img src=\"$img_link\">"; 
 	} else {
-		$img_link = "orderitem_file.php?id=".$a_form_vars[cartitemid]."&mode=raster&os_sid=".$os_sid ;
+		$img_link = "orderitem_file.php?id=".$a_form_vars[cartitemid]."&mode=raster&ossid=".$ossid ;
 		$img = "<img src=\"$img_link\">"; 
 	}
 

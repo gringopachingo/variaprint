@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -37,9 +37,9 @@
 	include("inc/functions.php");
 	include("inc/iface.php");
 	
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 
 	$a_site_settings = GetSiteAttributes($_SESSION[site], $_SESSION[mode]);
 	

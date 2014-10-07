@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -44,10 +44,10 @@
 	require_once("inc/functions.php");	
 	require_once("inc/iface.php");
 	
-	if (isset($a_form_vars['ms_sid'])) {
-		session_name("ms_sid");
+	if (isset($a_form_vars['mssid'])) {
+		session_name("mssid");
 		session_start();
-		$ms_sid = session_id();
+		$mssid = session_id();
 		if ($_SESSION["privilege"] == "owner") {
 			include("admin/inc/popup_log_check.php");
 		}
@@ -82,10 +82,10 @@
 			}
 		}
 		
-	}elseif(isset($a_form_vars['os_sid'])) {
-		session_name("os_sid");
+	}elseif(isset($a_form_vars['ossid'])) {
+		session_name("ossid");
 		session_start();
-		$os_sid = session_id();
+		$ossid = session_id();
 		if ($a_form_vars['type'] == "ordered") {
 			$dir = "_orderpdfs/";
 		} else {

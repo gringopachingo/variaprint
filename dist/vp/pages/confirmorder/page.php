@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -43,7 +43,7 @@
 	<table cellpadding=6 cellspacing=0 border=0 width=\"596\">
 		<tr><td width=\"500\" class=\"text\">
 		<!--	 email invoice<br> //-->
-			<a href=\"javascript:;\" onClick=\"popupWin('print_invoice.php?site=$_SESSION[site]&order_id=$_SESSION[order_id]&os_sid=$_SESSION[os_sid]','','width=650,toolbar=1,resizable=1,centered=1')\">view printable invoice</a><br>
+			<a href=\"javascript:;\" onClick=\"popupWin('print_invoice.php?site=$_SESSION[site]&order_id=$_SESSION[order_id]&ossid=$_SESSION[ossid]','','width=650,toolbar=1,resizable=1,centered=1')\">view printable invoice</a><br>
 			<br><br>
 		</td></tr>
 	</table>

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,9 +32,9 @@
 //
 // *******************************************************
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 
 require_once("../inc/config.php");
@@ -97,25 +97,25 @@ if ($item['InventoryAmount'] == "") {
   <tr>
     <td class="text"><form name="form1" method="post" action="">
       <p class="title"><strong>Edit Inventory
-        Settings  for Item &quot;<? print($item['Name']); ?>&quot; </strong></p>
+        Settings  for Item &quot;<?php print($item['Name']); ?>&quot; </strong></p>
       <p>If inventory tracking is enabled, the system will reduce the inventory
         amount  by the amount of
         the item ordered when an order's status is changed to Shipped. If the
         inventory is preprinted shells, multiply the number of shells printed
         times the number of items printed on the shell.</p>
       <p>
-        <input type="radio" name="enabled" value="true" <? print($track_true); ?>>
+        <input type="radio" name="enabled" value="true" <?php print($track_true); ?>>
         Inventory Tracking    <strong>Enabled</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="radio" name="enabled" value="false" <? print($track_false); ?>>
+        <input type="radio" name="enabled" value="false" <?php print($track_false); ?>>
     Inventory Tracking <strong>Disabled</strong> </p>
       <p>Change current inventory amount to
-          <input name="amount" type="text" id="amount" value="<? print($amount); ?>" size="10" >
+          <input name="amount" type="text" id="amount" value="<?php print($amount); ?>" size="10" >
     units</p>
       <p>
         <input type="button" name="Button" value="Cancel" onClick="top.close()">
         <input type="submit" name="Submit2" value="Save">
         <input type="hidden" name="action" value="save">
-        <input type="hidden" name="item_id" value="<? print($a_form_vars['item_id']); ?>">
+        <input type="hidden" name="item_id" value="<?php print($a_form_vars['item_id']); ?>">
       </p>
     </form></td>
   </tr>

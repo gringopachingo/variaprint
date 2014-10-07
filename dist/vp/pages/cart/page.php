@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -44,7 +44,7 @@
 	
 	
 
-	$sql = "SELECT ID, ItemID, ApprovalInitials, Qty, Cost FROM Cart WHERE SessionID='$os_sid' AND SiteID='$_SESSION[site]'";
+	$sql = "SELECT ID, ItemID, ApprovalInitials, Qty, Cost FROM Cart WHERE SessionID='$ossid' AND SiteID='$_SESSION[site]'";
 	$r_result = dbq($sql); 
 	
 	if ( mysql_num_rows($r_result) > 0) {
@@ -100,8 +100,8 @@
 			$qtypulldown = make_costqty_menu( $a_item['ItemID'], 
 				$a_item['Qty'], 
 				false, 
-				"onchange=\"document.location='vp.php?cartitemid=$a_item[ID]&os_action=updatecostqty&costqty=' + this.value + '&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"");
-			$cart .= iface_make_cart_row($a_item2['Name'], $qtypulldown, $a_item['ID'], $a_item['ItemID'], $os_sid, $approved) . iface_dottedline();
+				"onchange=\"document.location='vp.php?cartitemid=$a_item[ID]&os_action=updatecostqty&costqty=' + this.value + '&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"");
+			$cart .= iface_make_cart_row($a_item2['Name'], $qtypulldown, $a_item['ID'], $a_item['ItemID'], $ossid, $approved) . iface_dottedline();
 			$subtotal += $a_item['Cost'];
 		}
 		

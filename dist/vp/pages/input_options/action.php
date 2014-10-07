@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -35,11 +35,11 @@
 	$a_site_settings = GetSiteAttributes($_SESSION[site], $_SESSION[mode]);
 	
 	if ($_SESSION['logged_in'] == 0 && ($a_site_settings['CatalogRequireLogin'] == "Add" ||  $a_site_settings['CatalogRequireLogin'] == "Catalog")) {
-		header("Location: vp.php?os_page_afterlogin=input_options&os_page=login&os_sid=$_SESSION[os_sid]&site=$_SESSION[site]");
+		header("Location: vp.php?os_page_afterlogin=input_options&os_page=login&ossid=$_SESSION[ossid]&site=$_SESSION[site]");
 	}
 //	print("action: ". $_SESSION['os_action'] );
 	if ($_SESSION['os_action'] == "edititem" && $_SESSION['cartitemid'] == "") {
-		header("Location: vp.php?os_page=catalog&os_sid=$os_sid");
+		header("Location: vp.php?os_page=catalog&ossid=$ossid");
 	}	
 
 	

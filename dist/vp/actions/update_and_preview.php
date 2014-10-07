@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -54,7 +54,7 @@ print("//-->");
 	if ($_SESSION['modifyitem']) {
 		$where = "WHERE ID='$_SESSION[cartitemid]'";
 	} else {
-		$where = "WHERE SessionID='$os_sid' AND ID='$_SESSION[cartitemid]'";	
+		$where = "WHERE SessionID='$ossid' AND ID='$_SESSION[cartitemid]'";	
 	}
 	
 	//$xml = xml_make_tree($a_tree);

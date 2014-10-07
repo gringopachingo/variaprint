@@ -37,7 +37,7 @@
 	require_once("inc/functions-global.php");
 	require_once("inc/encrypt.php");
 
-	session_name("ms-sid");
+	session_name("mssid");
 	session_start();
 
 	//	require_once("inc/session.php");

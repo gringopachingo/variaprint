@@ -43,31 +43,31 @@ if (!IsSet($a_form_vars[sid])) {
 		$rand3 = rand(1000000000,99999999999999);
 		
 		
-		$os_sid = $rand . $rand2 . $rand3;	
+		$ossid = $rand . $rand2 . $rand3;	
 		if (IsSet($_SERVER["HTTP_X_FORWARDED_FOR"])) {
-			$os_sid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;//.
+			$ossid .=  "_" . $_SERVER["HTTP_X_FORWARDED_FOR"] ;//.
 		} else {
-			$os_sid .= "_" . $_SERVER["REMOTE_ADDR"];
+			$ossid .= "_" . $_SERVER["REMOTE_ADDR"];
 		}
-		$a_form_vars[sid] = encrypt($os_sid,"encryptit") ;
+		$a_form_vars[sid] = encrypt($ossid,"encryptit") ;
 	}
 }
 
 setcookie("sid", $a_form_vars[sid]);
-$os_sid = $a_form_vars[sid]  ;//urlencode ()
+$ossid = $a_form_vars[sid]  ;//urlencode ()
 if ( !ereg("sid=", $_SERVER["REQUEST_URI"]) ) {
 	if (ereg("\?", $_SERVER["REQUEST_URI"]) ) { 
-		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&ossid=$_SESSION[ossid]");
 		exit;
 	} else {
-		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]");
+		header ("Location: " . $_SERVER[REQUEST_URI] . "&site=$_SESSION[site]&ossid=$_SESSION[ossid]");
 		exit;
 	}
 }
 
 
-function session_get_vars($os_sid) {
-	$sql = "SELECT * FROM Sessions WHERE SessionID='$os_sid'";
+function session_get_vars($ossid) {
+	$sql = "SELECT * FROM Sessions WHERE SessionID='$ossid'";
 	$nResult = dbq($sql);
 	$aSession = mysql_fetch_assoc($nResult);
 	$aSessionVars = xml_get_tree($aSession['SessionVars']);
@@ -80,7 +80,7 @@ function session_get_vars($os_sid) {
 }
 
 function SaveSessionVars($var) {
-//	$aSavedVars = session_get_vars($os_sid);
+//	$aSavedVars = session_get_vars($ossid);
 /*
 	if ( is_array($aVars) ) {
 		while ( list($k, $v) = each($aVars) ) {
@@ -88,7 +88,7 @@ function SaveSessionVars($var) {
 		}
 	}
 
-	$xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<session id=\"$os_sid\" ip=\"$_SERVER[REMOTE_ADDR]\">\n";
+	$xml = "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<session id=\"$ossid\" ip=\"$_SERVER[REMOTE_ADDR]\">\n";
 	if ( is_array($aSavedVars) ) { 
 		while ( list($k, $v) = each($aSavedVars) ) {
 			if ($k != "") { $xml .= "<" . "variable id=\"$k\" value=\"" . htmlentities($v) . "\"/>\n"; }
@@ -101,11 +101,11 @@ function SaveSessionVars($var) {
 	
 //	$var = session_encode($var);
 	
-	$sql = "SELECT ID FROM Sessions WHERE SessionID='$os_sid'"; $nResult = dbq($sql); 
+	$sql = "SELECT ID FROM Sessions WHERE SessionID='$ossid'"; $nResult = dbq($sql); 
 	if ( mysql_num_rows($nResult) == 0) {
-		$sql = "INSERT INTO Sessions SET SessionVars='', SessionID='$os_sid'";
+		$sql = "INSERT INTO Sessions SET SessionVars='', SessionID='$ossid'";
 	} else {
-		$sql = "UPDATE Sessions SET SessionVars='' WHERE SessionID='$os_sid'";
+		$sql = "UPDATE Sessions SET SessionVars='' WHERE SessionID='$ossid'";
 	}
 	$nUpdate = dbq($sql);
 }

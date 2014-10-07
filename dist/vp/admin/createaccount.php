@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,7 +33,7 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
 //session_destroy();
 
@@ -57,13 +57,13 @@ if (isset($_POST['name']) && !isset($_SESSION[firstname]) && !isset($_SESSION[la
 
 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
 <form name="form1" method="post" action="create_account.php">
-  <? if ($_SESSION['show_alert'] == "1") { ?>
+  <?php if ($_SESSION['show_alert'] == "1") { ?>
   <table height="53" border="0" align="center" cellpadding="10" cellspacing="10" bgcolor="#FFCC33">
     <tr> 
-      <td class="text"><? print($_SESSION['alert_msg']); ?></td>
+      <td class="text"><?php print($_SESSION['alert_msg']); ?></td>
     </tr>
   </table>
-  <?
+  <?php
   	$_SESSION['show_alert'] = 0;
   	$_SESSION['alert_msg'] = "";
 	} ?>
@@ -96,10 +96,10 @@ if (isset($_POST['name']) && !isset($_SESSION[firstname]) && !isset($_SESSION[la
             <td width="1" rowspan="18" align="right"><img src="images/blue-dot.gif" width="1" height="320"></td>
           </tr>
           <tr> 
-            <td height="1"> <input name="create_first_name" type="text" id="create_first_name5" style="width:120" value="<? print($_SESSION['firstname']); ?>" size="14"> 
+            <td height="1"> <input name="create_first_name" type="text" id="create_first_name5" style="width:120" value="<?php print($_SESSION['firstname']); ?>" size="14"> 
             </td>
             <td height="1">&nbsp;&nbsp;</td>
-            <td height="1"><input name="create_last_name" type="text" id="create_last_name5" style="width:120" value="<? print($_SESSION['lastname']); ?>" size="14"></td>
+            <td height="1"><input name="create_last_name" type="text" id="create_last_name5" style="width:120" value="<?php print($_SESSION['lastname']); ?>" size="14"></td>
           </tr>
           <tr> 
             <td height="1" colspan="3" class="text"><img src="images/spacer.gif" width="1" height="5"></td>
@@ -110,9 +110,9 @@ if (isset($_POST['name']) && !isset($_SESSION[firstname]) && !isset($_SESSION[la
             <td height="1" valign="bottom" class="text"><font color="#FFFFFF"><strong>Email</strong></font></td>
           </tr>
           <tr> 
-            <td height="1"><input name="create_company" type="text" id="create_company5" style="width:120" value="<? print($_SESSION['company']); ?>" size="14"></td>
+            <td height="1"><input name="create_company" type="text" id="create_company5" style="width:120" value="<?php print($_SESSION['company']); ?>" size="14"></td>
             <td height="1">&nbsp;</td>
-            <td height="1"><input name="create_email" type="text" id="create_email5" style="width:120" value="<? print($_SESSION['email']); ?>" size="14"></td>
+            <td height="1"><input name="create_email" type="text" id="create_email5" style="width:120" value="<?php print($_SESSION['email']); ?>" size="14"></td>
           </tr>
           <tr> 
             <td height="1" colspan="3" class="text"><img src="images/spacer.gif" width="1" height="5"></td>
@@ -123,7 +123,7 @@ if (isset($_POST['name']) && !isset($_SESSION[firstname]) && !isset($_SESSION[la
             <td height="1">&nbsp;</td>
           </tr>
           <tr> 
-            <td height="1"><input name="create_phone" type="text" id="create_phone5" style="width:120" value="<? print($_SESSION['phone']); ?>" size="14"></td>
+            <td height="1"><input name="create_phone" type="text" id="create_phone5" style="width:120" value="<?php print($_SESSION['phone']); ?>" size="14"></td>
             <td height="1">&nbsp;</td>
             <td height="1">&nbsp;</td>
           </tr>
@@ -139,7 +139,7 @@ if (isset($_POST['name']) && !isset($_SESSION[firstname]) && !isset($_SESSION[la
             <td height="1" valign="bottom" class="text"><font color="#FFFFFF"><strong>Password</strong></font></td>
           </tr>
           <tr> 
-            <td height="1"><input name="create_username" type="text" id="create_username6" style="width:120" value="<? print($_SESSION['username']); ?>" size="14"></td>
+            <td height="1"><input name="create_username" type="text" id="create_username6" style="width:120" value="<?php print($_SESSION['username']); ?>" size="14"></td>
             <td height="1">&nbsp;</td>
             <td height="1"><input name="create_password" type="password" id="create_password8" style="width:120" size="14"></td>
           </tr>

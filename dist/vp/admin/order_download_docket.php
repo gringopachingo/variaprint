@@ -41,9 +41,9 @@
 	require_once("inc/session.php");
 	
 //	session_save_path("/www/tmp");
-	session_name("ms-sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 
 	$a_orders = array_find_key_prefix("checkbox_",$a_form_vars, true);
 	

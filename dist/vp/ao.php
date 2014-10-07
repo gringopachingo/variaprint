@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -224,8 +224,8 @@ if (mysql_num_rows($r_result) < 1 || trim($a_form_vars["id"]) == "") {
 						&bull; $itemname
 					</td>
 					<td class=\"text\" align=\"right\" bgcolor=\"$color\">
-						<a href=\"#\" onClick=\"popupWin('secure/edititem.php?item_id=$a_order_items[ItemID]&site=$siteid&cartitemid=$a_order_items[ID]&os_sid=$_SESSION[os_sid]&mode=ordered','','width=650,height=550,scrollbars=1,resizable=1,status=1,centered=yes')\">edit</a>...&nbsp; 
-						<a href=\"#\" onClick=\"popupWin('itempreview.php?itemid=$a_order_items[ItemID]&site=$siteid&cartitemid=$a_order_items[ID]&os_sid=$_SESSION[os_sid]&mode=ordered','','width=600,height=450,scrollbars=1,resizable=1,status=1,centered=yes')\">preview</a>... 
+						<a href=\"#\" onClick=\"popupWin('secure/edititem.php?item_id=$a_order_items[ItemID]&site=$siteid&cartitemid=$a_order_items[ID]&ossid=$_SESSION[ossid]&mode=ordered','','width=650,height=550,scrollbars=1,resizable=1,status=1,centered=yes')\">edit</a>...&nbsp; 
+						<a href=\"#\" onClick=\"popupWin('itempreview.php?itemid=$a_order_items[ItemID]&site=$siteid&cartitemid=$a_order_items[ID]&ossid=$_SESSION[ossid]&mode=ordered','','width=600,height=450,scrollbars=1,resizable=1,status=1,centered=yes')\">preview</a>... 
 					</td>
 				</tr>			
 				";

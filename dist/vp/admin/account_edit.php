@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 require_once("../inc/config.php");
 require_once("../inc/functions-global.php");
@@ -106,7 +106,7 @@ $a_user = mysql_fetch_assoc($r_result);
 <head>
 <title>Edit Account</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<?
+<?php
 print($header_content);
 ?>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -114,13 +114,13 @@ print($header_content);
 
 <body topmargin="0" marginheight="0">
 <form name="form1" method="post" action="account_edit.php">
-  <? if ($show_alert) { ?>
+  <?php if ($show_alert) { ?>
   <table width="480" border="0" align="center" cellpadding="10" cellspacing="0" bgcolor="#FF9900">
     <tr>
-      <td height="25" colspan="4" align="center" class="text"><? print($alert_msg);  ?></td>
+      <td height="25" colspan="4" align="center" class="text"><?php print($alert_msg);  ?></td>
     </tr>
   </table>
-  <? } ?>
+  <?php } ?>
   <br>
   <br>
   <table width="480" border="0" align="center" cellpadding="10" cellspacing="0">
@@ -131,27 +131,27 @@ print($header_content);
       <td class="text"><table width="225" border="0" cellpadding="0" cellspacing="0">
           <tr> 
             <td width="81" height="25" class="text">Username:</td>
-            <td width="104" height="25" class="text"><strong><? print($a_user['Username']); ?></strong></td>
+            <td width="104" height="25" class="text"><strong><?php print($a_user['Username']); ?></strong></td>
           </tr>
           <tr> 
             <td height="25" class="text">First name: </td>
-            <td height="25"> <input name="field_firstname" type="text" id="field_firstname" value="<? print($a_user['Firstname']); ?>" size="20"></td>
+            <td height="25"> <input name="field_firstname" type="text" id="field_firstname" value="<?php print($a_user['Firstname']); ?>" size="20"></td>
           </tr>
           <tr> 
             <td height="25" class="text">Last name: </td>
-            <td height="25"> <input name="field_lastname" type="text" id="field_lastname" value="<? print($a_user['Lastname']); ?>" size="20"></td>
+            <td height="25"> <input name="field_lastname" type="text" id="field_lastname" value="<?php print($a_user['Lastname']); ?>" size="20"></td>
           </tr>
           <tr> 
             <td height="25" class="text">Company:</td>
-            <td height="25"> <input name="field_company" type="text" id="field_company" value="<? print($a_user['Company']); ?>" size="20"></td>
+            <td height="25"> <input name="field_company" type="text" id="field_company" value="<?php print($a_user['Company']); ?>" size="20"></td>
           </tr>
           <tr> 
             <td height="25" class="text">Phone: </td>
-            <td height="25"> <input name="field_phone" type="text" id="field_phone" value="<? print($a_user['Phone']); ?>" size="20"></td>
+            <td height="25"> <input name="field_phone" type="text" id="field_phone" value="<?php print($a_user['Phone']); ?>" size="20"></td>
           </tr>
           <tr> 
             <td height="25" class="text">Email:*</td>
-            <td height="25"> <input name="field_email" type="text" id="field_email" value="<? print($a_user['Email']); ?>" size="20"></td>
+            <td height="25"> <input name="field_email" type="text" id="field_email" value="<?php print($a_user['Email']); ?>" size="20"></td>
           </tr>
           <tr> 
             <td height="25" class="text">&nbsp;</td>

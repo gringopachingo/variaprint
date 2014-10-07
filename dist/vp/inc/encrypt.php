@@ -61,7 +61,6 @@ function reorder($acount)
 }
 
 
-
 function encrypt($data, $passwd)
 {
   if (trim($data) == "") {

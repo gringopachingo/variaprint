@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -40,9 +40,9 @@
 	require_once("inc/functions.php");
 	require_once("inc/iface.php");
 	
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	if ($a_form_vars['action'] == "save") {
 		

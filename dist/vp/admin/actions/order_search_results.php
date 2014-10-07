@@ -179,7 +179,7 @@ if ( isset($a_form_vars[action_pd])) {
 		}
 	}
 	
-	header("Location: vp.php?action=order_view&ms_sid=$ms_sid");
+	header("Location: vp.php?action=order_view&mssid=$mssid");
 }
 
 
@@ -485,14 +485,14 @@ if ($num_orders == 0) {
 					$bill_link = "
 					<td>&nbsp;</td>
 					<td class=\"text\" align=\"right\">
-						<input class=\"text\" onClick=\"popupWin('finishorder.php?id=$a[ID]&type=cf&ms_sid=$ms_sid','','width=350,height=200,centered=1')\" type=\"button\" value=\"Capture Funds...\">	
+						<input class=\"text\" onClick=\"popupWin('finishorder.php?id=$a[ID]&type=cf&mssid=$mssid','','width=350,height=200,centered=1')\" type=\"button\" value=\"Capture Funds...\">	
 					</td>
 					";
 				} else {
 					$bill_link = "
 					<td>&nbsp;</td>
 					<td class=\"text\" align=\"right\">
-						<input class=\"text\" onClick=\"popupWin('finishorder.php?id=$a[ID]&type=rec&ms_sid=$ms_sid','','width=350,height=200,centered=1')\" type=\"button\" value=\"Pmt Rec'd...\">
+						<input class=\"text\" onClick=\"popupWin('finishorder.php?id=$a[ID]&type=rec&mssid=$mssid','','width=350,height=200,centered=1')\" type=\"button\" value=\"Pmt Rec'd...\">
 					</td>
 					";
 				}
@@ -591,8 +591,8 @@ if ($num_orders == 0) {
 					
 					if ( $a_order_items['Imprint'] != "") {
 				$content .= "
-				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View raster proof\" onClick=\"popupWin('itempreview.php?id=".$id."&ms_sid=$ms_sid','','width=600,height=500,centered=yes')\">proof</a>... &nbsp;  
-				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View PDF proof\" onClick=\"popupWin('../orderitem_file.php?id=".$id."&mode=presspdf&ms_sid=".$ms_sid."','','width=400,height=400,centered=yes')\">press</a>...
+				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View raster proof\" onClick=\"popupWin('itempreview.php?id=".$id."&mssid=$mssid','','width=600,height=500,centered=yes')\">proof</a>... &nbsp;  
+				<a href=\"javascript:;\" onFocus=\"this.blur()\" title=\"View PDF proof\" onClick=\"popupWin('../orderitem_file.php?id=".$id."&mode=presspdf&mssid=".$mssid."','','width=400,height=400,centered=yes')\">press</a>...
 					";
 					}
 					

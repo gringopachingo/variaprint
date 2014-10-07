@@ -40,9 +40,9 @@
 	require_once("inc/session.php");
 
 	if ($suppress_display != true) { // only do this if the imposition is being downloaded
-		session_name("ms-sid");
+		session_name("mssid");
 		session_start();
-		$ms_sid = session_id();
+		$mssid = session_id();
 
 		if (!$_SESSION['privilege_dockets']) {
 			require_once("inc/popup_log_check.php");

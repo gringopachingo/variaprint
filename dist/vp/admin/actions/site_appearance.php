@@ -93,7 +93,7 @@ if ( $_GET['save_action'] == "Discard" ) {
 }
 
 $_SESSION[save_action] = "";
-// session_save_vars( $ms_sid, array('save_action' => '') );
+// session_save_vars( $mssid, array('save_action' => '') );
 
 
 

@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -39,9 +39,9 @@
 	include("inc/functions.php");
 	include("inc/iface.php");
 	
-	session_name("os_sid");
+	session_name("ossid");
 	session_start();
-	$os_sid = session_id();
+	$ossid = session_id();
 	
 	
 	$invoice = invoice("printable",$_SESSION['order_id']);
@@ -56,6 +56,6 @@
 </head>
 
 <body>
-<? print($invoice); ?>
+<?php print($invoice); ?>
 </body>
 </html>

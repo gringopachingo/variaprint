@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -33,9 +33,9 @@
 // *******************************************************
 
 
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 
 
 require_once("../../inc/config.php");
@@ -47,9 +47,9 @@ if (!$_SESSION["privilege_items_properties"]){
 }
 
 //session_save_path("/www/tmp");
-session_name("ms_sid");
+session_name("mssid");
 session_start();
-$ms_sid = session_id();
+$mssid = session_id();
 $_SESSION['updated'] = " ";
 
 $_SESSION[site] = $_SESSION['site'];

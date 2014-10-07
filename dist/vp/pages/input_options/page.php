@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -128,7 +128,7 @@
 	// CHECK TO SEE IF WE EVEN NEED TO DISPLAY THIS PAGE
 	if (!$have_prefill && !$have_optionalfields) {
 		$_SESSION['no_options'] = true;
-		header("Location: vp.php?input_options=0&os_page=input&prefill_set=&os_sid=$os_sid");
+		header("Location: vp.php?input_options=0&os_page=input&prefill_set=&ossid=$ossid");
 		exit;
 	} else {
 
@@ -182,15 +182,15 @@
 				$overwrite 
 				
 				<br><br>
-				<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&os_sid=$_SESSION[os_sid]\">
+				<a href=\"$script_name?site=$_SESSION[site]&os_page=catalog&ossid=$_SESSION[ossid]\">
 				<input class=\"button\" type=\"button\" value=\"&laquo; Cancel\" ".
-					"onClick=\"document.location='$script_name?os_page=catalog&site=$_SESSION[site]&os_sid=$_SESSION[os_sid]'\"></a>&nbsp;&nbsp;
+					"onClick=\"document.location='$script_name?os_page=catalog&site=$_SESSION[site]&ossid=$_SESSION[ossid]'\"></a>&nbsp;&nbsp;
 				<input type=\"submit\" class=\"button\" value=\"Continue &raquo;\">
 				
 				</td></tr>
 			</table>
 			
-			<input type=\"hidden\" name=\"sid\" value=\"$os_sid\">
+			<input type=\"hidden\" name=\"sid\" value=\"$ossid\">
 			<input type=\"hidden\" name=\"input_options\" value=\"1\">
 			<input type=\"hidden\" name=\"os_page\" value=\"input\">";
 	
@@ -214,7 +214,7 @@
 		$content 	= iface_make_box($content,600,100,0);		
 		$os_sidebar = iface_make_sidebar($title, "Select options for this item.")  ;
 		if ($_SESSION["modifyitem"] != true) {
-			$os_sidebar .= iface_make_cart_sidebar("Cart",$os_sid);
+			$os_sidebar .= iface_make_cart_sidebar("Cart",$ossid);
 		}
 		$sPage 		= MakePageStructure($os_sidebar,$content,$tabs);
 	}

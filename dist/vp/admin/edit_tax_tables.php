@@ -1,4 +1,4 @@
-<?
+<?php
 
 // *******************************************************
 // 
@@ -32,9 +32,9 @@
 //
 // *******************************************************
 
-	session_name("ms_sid");
+	session_name("mssid");
 	session_start();
-	$ms_sid = session_id();
+	$mssid = session_id();
 	
 	require_once("../inc/config.php");
 	require_once("../inc/functions-global.php");
@@ -132,7 +132,7 @@ $rows
 
 ?><HTML>
 <HEAD>
-<?
+<?php
 print($header_content);
 ?>
 <TITLE>Edit Tax Table</TITLE>
@@ -142,7 +142,7 @@ print($header_content);
 
 <BODY background="images/bkg-groove.gif">
 <form name="form1" method="get" action="">
-  <?
+  <?php
 print($content);
 
 ?>
